@@ -1,6 +1,6 @@
 ---
 layout: contest
-title: Liang hen&#62;Chinese Blog
+title: Liang Chen&#62;Chinese Blog
 name: Chinese Blog
 permalink: /cn/
 ---
