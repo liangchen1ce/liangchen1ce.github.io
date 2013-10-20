@@ -1,6 +1,11 @@
+$break-small: "screen and (max-width: 500px)";
+$break-medium: "screen and (max-width: 622px)";
+
+$dark-blue: #0e76a8;
+$light-gray: #F6F6F6;
 body { /* Base styles */
     font-family: 'Lato', sans-serif;
-    text-align: center;
+    text-align: left;
 }
 
 h1 { /* Post List Title */
@@ -35,9 +40,9 @@ h2 { /* Single Post Title */
 }
 
 h3 { /* Me page cards */
-    font-size: 27px;
-    text-align: center;
-    font-weight: 300;
+    font-size: 19px;
+    text-align: left;
+    font-weight: 1000;
     color: black;
 }
 
@@ -49,7 +54,23 @@ h4 { /* Post Detail Line */
 }
 
 h5 { /* Header Title */
-    font-size: 20px;
+    font-size: 40px;
+    margin-left: 25px;
+    float: center;
+	line-height: 60px;
+    display: block;
+    font-weight: 700;
+	color: #555;
+	text-rendering: optimizelegibility;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    margin: 0;
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+}
+
+h6 { /* Header Title */
+    font-size: 19px;
     margin-left: 25px;
     float: center;
     display: block;
@@ -60,6 +81,7 @@ h5 { /* Header Title */
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
 }
+
 
 a {
 	&:hover { color: #2a92d3; text-decoration: none; }
