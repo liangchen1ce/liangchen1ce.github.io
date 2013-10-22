@@ -10,4 +10,4 @@ permalink: /cn/vitae/
 
 如果你有兴趣，请看英文版简历。
 
-> [vitae]http://liangchen1ce.github.io/eng/vitae/)
+> [vitae](http://liangchen1ce.github.io/eng/vitae/)
