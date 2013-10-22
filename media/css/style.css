@@ -14,6 +14,7 @@ body {
 h1 {
 	font-size:30px;
 	color: #555;
+	line-height: 25px;
 	}
   
 ol, ul {
@@ -151,7 +152,7 @@ min-height: 100px;
 display: inline-block;
 margin: 5px;
 vertical-align: top;
-margin-left: 27px; 
+margin-left: 42px; 
 }
   
   article p {
@@ -161,6 +162,14 @@ margin-left: 27px;
 	font-family: "Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
 	color: #000000;
 	margin-left: 30px;
+  }
+  article .cvenglish{
+	font-size: 16px;
+	font-family: "Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+	color: #000000;
+	margin-left: 365px;
+	margin-top: -153px;
+	max-width: 695px;
   }
   article .title {
     font-family: "Galdeano", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }

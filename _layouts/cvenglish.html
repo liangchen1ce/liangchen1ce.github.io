@@ -14,13 +14,12 @@
       hljs.initHighlightingOnLoad();
     </script>
   </head>
-  <body>
+    <body>
       <div id="main" role="main">
         <header>
-
-            <h1>Climb a Higher Mountain</h1>
-
-          
+			{% if page.title %}
+            <h1>{{ page.title }}</h1>
+			{% endif %}
         </header>
 		<nav>
             <span><a title="HOME" class="" href="/eng/">HOME</a></span>
@@ -28,15 +27,18 @@
             <span><a title="PROJECTS" class="" href="/eng/projects/">PROJECTS</a></span>
             <span><a title="VITAE" class="" href="/eng/vitae">VITAE</a></span>
             <span><a title="ABOUT" class="" href="/eng/about/">ABOUT</a></span>
+				 
 		</nav>
-        <article class="content">
-			<section class="post">
-				
-					{{ content }}
-				
+        <article>
+
+			<section class="cvenglish">
+				{{ content }}
 			</section>
-        </article>
+</article>
         
       </div> 
   </body>
 </html>
+
+
+
