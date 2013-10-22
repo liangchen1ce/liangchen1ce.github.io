@@ -43,7 +43,7 @@ My work has been presented in the firm's official website.
 * Honorable Mentions of Mathematical Contest in Modeling
 
 ## Computer Skills
-	
+
 * Languages: C, VB, Verilog, Pure Data
 * Web Technologies: HTML, CSS, Markdown
 * Operating Systems: 95% Windows, 5% GNU Linux
