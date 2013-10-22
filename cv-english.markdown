@@ -28,9 +28,9 @@ I apply the iterative adaptive inverse ﬁltering (IAIF) method when inverse fil
 of glottal source estimation by downgrading the contribution of the vocal tract at glottal closure instants using weighed linear prediction (WLP).
 
 ##Professional Experience
- 
+
 Jun. 2012 - Aug. 2012	Technical Assistant, Aviation Data Communication Corporation
-	
+
 * Intern as test engineer and drafter
  
 Drafting the user specifications for Pre-Departure Clearance Link System-AVIDEP(DCL-AVIDEP) which is now used in 11 civil aviation air traffic control station.         
@@ -50,7 +50,8 @@ My work has been presented in the firm's official website.
 * Math & Statistical Package: Matlab, SPSS, Lindo
 * Office Software: Microsoft Office, Photoshop
 
-Listed computer skills are what I've done many programs with, and I also did some work with Javascript and something else. Recently, I get interested in Python.
+Listed computer skills are what I've done many programs with, and I also did 
+some work with Javascript, Ruby and something else. Recently, I get interested in Python.
 
 ## Language Ability
 
