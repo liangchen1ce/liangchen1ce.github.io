@@ -13,7 +13,7 @@ body {
   }
 h1 {
 	font-size:30px;
-	font-family:"Cuprum";
+	color: #555;
 	}
   
 ol, ul {
@@ -69,7 +69,8 @@ header {
   width: 680px;
   margin: 0 auto;
   text-align: justify;
-  margin: 2em auto 4em auto;
+  margin: 2em auto 1em auto;
+  margin-left: 29em;
   border-bottom: 1px dashed #999; }
   header:after {
     content: '';
@@ -83,27 +84,42 @@ header {
       font-family: "Titillium Web", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
       header #header h1 a {
         color: #777; }
-  header nav {
-    display: inline-block;
-    position: relative;
-    top: 1em; }
-    header nav span {
-      margin: .5em; }
-    header nav a, header nav #header h1 a, header #header h1 nav a, header nav article .title a, article .title header nav a, header nav article .meta .tags a, article .meta .tags header nav a {
-      font-family: "Titillium Web", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      color: #999; }
 
-	  
+nav {
+font-family: "Electrolize",sans-serif;
+font-size: 1.1em;
+text-transform: uppercase;
+
+text-align: right;
+float: left;
+margin-left: 15em;
+}		
+		
+nav a {
+display: block;
+padding: .7em 1em;
+color: #000000;
+}
+nav a:hover{background-color:#ff0000;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
+a {
+color: #dd0000;
+text-decoration: none;
+}  
 
 #content {
   width: 680px;
-  margin: 0 auto;
-  line-height: 2em; }
+  margin: 2em auto;
+  display:block;
+  padding:0 2em;}
+  .content{font-size:16px;line-height:24px;}
+.content h1{padding:.5em 0;}
+.content img{max-width:600px;display:block;margin:4px auto;-webkit-box-shadow:#999 1px 1px 4px;-moz-box-shadow:#999 1px 1px 4px;box-shadow:#999 1px 1px 4px;}
   #content .main-listing {
     margin-bottom: 2em; }
 
 ul.listing {
-  margin-top: 1em; }
+  margin-top: 1em;
+margin-left: 203px;  }
   ul.listing li {
     list-style-type: none;
     padding: 0; }
@@ -120,11 +136,13 @@ ul.listing {
         color: #ccc; }
 
 article {
-  margin: 2em 0; }
+  margin: 24px 0;
+margin-left: 203px; }
+  
   article p {
     padding: .7em 0; }
   article .title {
-    font-family: "Titillium Web", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
+    font-family: "Galdeano", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
     article .title header #header h1 a, header #header h1 article .title a, article .title a, article .title .meta .tags a, article .meta .tags .title a {
       color: #777; }
   article .meta {

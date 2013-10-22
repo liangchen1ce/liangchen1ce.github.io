@@ -6,11 +6,16 @@ permalink: /eng/
 ---
 
 
-<div class="content">
-	<p style="text-align: center;"> page might have something cool on it one day.<br>We can only hope.</p>
-</div>
-
-
-<style>
-	body { background-color: #F6F6F6; }
-</style>
+<ul class="listing">
+{% for post in site.categories.eng %}
+  {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+  {% if year != y %}
+    {% assign year = y %}
+    <li class="listing-seperator">{{ y }}</li>
+  {% endif %}
+  <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
