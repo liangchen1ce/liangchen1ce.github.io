@@ -1,0 +1,13 @@
+---
+title: about
+layout: pagecn
+permalink: /cn/about/
+---
+
+
+网页建设中...
+
+
+请查看英文版的项目内容！
+
+> [Projects](http://liangchen1ce.github.io/eng/projects/)
