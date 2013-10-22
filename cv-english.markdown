@@ -49,7 +49,7 @@ My work has been presented in the firm's official website.
 * Web Technologies: HTML, CSS, Markdown
 * Operating Systems: 95% Windows, 5% GNU Linux
 * Math & Statistical Package: Matlab, SPSS, Lindo
-* Office Software: Microsoft Office, Photoshop
+* Office Application: LaTeX, Microsoft Office, Photoshop
 
 Listed computer skills are what I've done many programs with, and I also did 
 some work with Javascript, Ruby and something else. Recently, I get interested in Python.
