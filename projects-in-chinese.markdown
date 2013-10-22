@@ -1,7 +1,7 @@
 ---
 title: about
 layout: pagecn
-permalink: /cn/about/
+permalink: /cn/projects/
 ---
 
 
