@@ -1,12 +1,12 @@
 ---
 layout: posteng
 category: eng
-linka: test
-permalink: /eng/test
-title: test
+linka: subsections-of-electroacoustic-music
+permalink: /eng/subsections-of-electroacoustic-music/
+title: Subsections of Electroacoustic Music
 ---
 
-看下成果肿么样！
+
 
 
 

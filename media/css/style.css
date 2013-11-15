@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Lekton);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web);
 @import url(http://fonts.googleapis.com/css?family=Galdeano);
@@ -167,8 +167,8 @@ margin-left: 42px;
 	font-size: 16px;
 	font-family: "Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
 	color: #000000;
-	margin-left: 365px;
-	margin-top: -153px;
+	margin-left: 30px;
+	margin-top: 0px;
 	max-width: 695px;
   }
   article .title {
