@@ -153,6 +153,7 @@ display: inline-block;
 margin: 5px;
 vertical-align: top;
 margin-left: 42px; 
+max-width: 710px;
 }
   
   article p {
