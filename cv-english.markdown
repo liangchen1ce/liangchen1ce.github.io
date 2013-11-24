@@ -56,7 +56,7 @@ some work with Javascript, Ruby and something else. Recently, I get interested i
 
 ## Language Ability
 
-* TOEFL: Reading 30, Listening 27, Speaking 20, Writing, 22, Total 99							
+* TOEFL: Reading 27, Listening 28, Speaking 19, Writing, 29, Total 103							
 * GRE: Verbal 152, Quantitative 170, AW 3.0
 
 
