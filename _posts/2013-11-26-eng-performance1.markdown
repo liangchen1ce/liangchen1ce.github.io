@@ -3,7 +3,7 @@ layout: posteng
 category: projects
 another-category: Music Performance
 linka: test
-permalink: /eng/projects/yellow river
+permalink: /eng/projects/yellowriver
 title: Yellow River
 ---
 #### Background
