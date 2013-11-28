@@ -1,9 +1,0 @@
----
-layout: posteng
-category: eng
-linka: subsections-of-electroacoustic-music
-permalink: /eng/subsections-of-electroacoustic-music/
-title: Subsections of Electroacoustic Music
----
-
-http://www.ems-network.org/
