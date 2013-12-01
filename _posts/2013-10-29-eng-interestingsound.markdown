@@ -18,7 +18,7 @@ Click "boom" in the patch, you will hear a sound same as the linked voice.
 
 The timbre is random along time, because the randomness of fundamental frequency and harmonics.
 
-- [cosmic](http://lollichock.tumblr.com/post/68634614313/audio_player_iframe/lollichock/tumblr_mx41t8XYW11snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68634614313%2Ftumblr_mx41t8XYW11snsvcq&amp;color=black&amp;simple=1)
+- [Cosmic](http://lollichock.tumblr.com/post/68634614313/audio_player_iframe/lollichock/tumblr_mx41t8XYW11snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68634614313%2Ftumblr_mx41t8XYW11snsvcq&amp;color=black&amp;simple=1)
 
 This patch generates up-arpeggiator sound by synchronously combining 3 voices.
 
