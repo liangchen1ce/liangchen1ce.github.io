@@ -3,10 +3,10 @@ layout: posteng
 category: eng
 linka: interestingsound
 permalink: /eng/interestingsound/
-title: Interesting Sound Effects
+title: Basic Sound Effects used in Film Scenes
 ---
 
-I discover a intersting [website](http://obiwannabe.co.uk/) generating various sound effects which can be used in movie scenes, games and other situations. I'm going to demostrate some audio outputs using codes on the site.
+I discovered an intersting [website](http://obiwannabe.co.uk/) generating various sound effects which can be used in movie scenes, games and other situations. The website holder as well as sound designer is the author of book "Designing Sound". That book is quite absorbing and it mainly talks about sound design in movies and games. Similarly, it's also the theme of this website. I'm going to demonstrate some audio outputs using codes offered on this site.
 
 - [Explosions](http://lollichock.tumblr.com/post/68629487248/audio_player_iframe/lollichock/tumblr_mx3z0i8qhh1snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68629487248%2Ftumblr_mx3z0i8qhh1snsvcq&amp;color=black&amp;simple=1)
 
