@@ -4,7 +4,7 @@ category: projects
 another-category: Singing Research
 linka: glottalflow
 permalink: /eng/projects/glottalflow
-title: Accuracy Improved Glottal Source Signal Separated from High-pitch Sound
+title: Improved Inverse Filtering based Glottal Source Separation using Weighed Linear Prediction
 ---
 
 
