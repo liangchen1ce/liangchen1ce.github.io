@@ -11,9 +11,6 @@ The link below directs to part of the special concert of Beihang University Glee
 #### Location
 Sunrise concert hall, Beihang University
 #### Online Video
-http://v.youku.com/v_show/id_XNDAyOTgwMDQw.html
+[Yimeng Folk and three other songs](http://v.youku.com/v_show/id_XNDAyOTgwMDQw.html)
 #### Me?
 Second row, forth from the left in the first and last song
-
-
-

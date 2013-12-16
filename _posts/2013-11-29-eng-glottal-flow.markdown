@@ -45,3 +45,6 @@ The formant distortion figure shows no big difference between two methods, howev
 
 #### Source notification
 Examples for different kinds of voice quailty come from Linguistic Voice Quality talk by Patricia Keating and Christina Esposito, http://www.assta.org/
+
+#### A brief description paper
+[pdf file](/glottal.pdf)
