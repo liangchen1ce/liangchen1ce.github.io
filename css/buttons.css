@@ -50,12 +50,12 @@
   #renren:active {
     border: 2px solid #00a0d1; }
 
-#github {
+#linkedin {
   border: 2px solid #171515;
   color: #171515; }
-  #github:hover {
+  #linkedin:hover {
     border: 2px solid #adadad; }
-  #github:active {
+  #linkedin:active {
     border: 2px solid #171515; }
 
 .socialicon {
