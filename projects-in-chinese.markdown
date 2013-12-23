@@ -1,5 +1,5 @@
 ---
-title: about
+title: 项目
 layout: pagecn
 permalink: /cn/projects/
 ---
