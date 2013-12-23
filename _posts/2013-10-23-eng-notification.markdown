@@ -6,4 +6,4 @@ permalink: /eng/notification/
 title: Notification
 ---
 
-I am still prearranging my first blog. If you want to know me more, please go to the [Projects](/eng/projects/) section.
+This blog area is new and to be updated. If you want to know me more, please go to the [Projects](/eng/projects/) section.
