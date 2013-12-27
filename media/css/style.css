@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Lekton);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web);
 @import url(http://fonts.googleapis.com/css?family=Galdeano);
-@import url(http://fonts.googleapis.com/css?family=Electrolize);
+@import url(http://fonts.googleapis.com/css?family=Quando);
 @import url(http://fonts.googleapis.com/css?family=Cuprum);
 
 *{padding:0;margin: 0;border:none;outline:none;}
@@ -87,7 +87,7 @@ header {
         color: #777; }
 
 nav {
-font-family: "Electrolize",sans-serif;
+font-family: "Quando",sans-serif;
 font-size: 1.1em;
 text-transform: uppercase;
 
@@ -103,7 +103,7 @@ color: #000000;
 }
 nav a:hover{background-color:#a6b8ff;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
 a {
-color: #44009f;
+color: #dd0000;
 text-decoration: none;
 }  
 
@@ -152,7 +152,7 @@ min-height: 100px;
 display: inline-block;
 margin: 5px;
 vertical-align: top;
-margin-left: 42px; 
+margin-left: 20px; 
 max-width: 710px;
 }
   
