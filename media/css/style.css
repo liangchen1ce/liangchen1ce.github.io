@@ -101,9 +101,9 @@ display: block;
 padding: .7em 1em;
 color: #000000;
 }
-nav a:hover{background-color:#ff0000;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
+nav a:hover{background-color:#a6b8ff;text-decoration:none;color:#f9f9f9;-webkit-transition:color .2s linear;}
 a {
-color: #dd0000;
+color: #44009f;
 text-decoration: none;
 }  
 
