@@ -8,7 +8,7 @@ title: AM in Pure Data & "The kettle's boiling!"
 
 We could use Pure Data to do AM & FM application, and get more direct audio experience when learning modulation. 
 
-![AM](http://farm8.staticflickr.com/7418/11696043404_3e0b5950a6.jpg "AM")
+![AM](http://farm6.staticflickr.com/5525/11698709875_0fc63c067a.jpg "AM")
 
 Depth is used to control the volume and object "knob" is used to change the rate of the modulator.
 [Patch](/AM.pd/)
