@@ -62,9 +62,10 @@ blockquote, pre code {
   overflow: auto; }
 
 code {
+font-family: "Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
   background-color: #f8f8f8;
   padding: 2px 5px;
-  border: 1px dashed #e0e0e0; }
+  border: 1px dashed #c9c4bb; }
 
 header {
   width: 680px;
