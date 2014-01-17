@@ -29,7 +29,7 @@ of glottal source estimation by downgrading the contribution of the vocal tract 
 
 ##Professional Experience
 
-Jun. 2012 - Aug. 2012	Technical Assistant, Aviation Data Communication Corporation
+Jun. 2012 - Sep. 2012	Technical Assistant, Aviation Data Communication Corporation
 
 * Intern as test engineer and drafter
  
