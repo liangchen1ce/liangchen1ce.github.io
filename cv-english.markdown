@@ -38,7 +38,7 @@ My work has been presented in the firm's official website.
  
 ## Honors and Awards 
 
-* Provicial-Level Merit Student through half a million fresh high school graduate
+* Provicial-Level Merit Student through half a million high school graduates
 * 1st-prize Scholarship of Art Activities for the 2011-2012 academic year, Beihang University
 * Honorable Mentions of Mathematical Contest in Modeling
 * 3rd-prize in "Fengru Cup" Scientific and Technology Innovation Competition, Beihang University
