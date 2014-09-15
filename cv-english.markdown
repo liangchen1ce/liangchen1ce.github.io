@@ -15,12 +15,12 @@ Homepage: liangchen1ce.github.io
 
 ## Education Background
  
-Sep. 2010 - June. 2014, Undergraduate student in Beihang University, Beijing, China
+Sep. 2010 - June. 2014, Undergraduate student in Beihang University, Beijing, China                      
 Aug. 2014 - Present, Master studnt in Carnegie Mellon University, Pittsburgh, PA
  
 ## Highlight Courses
 
-15-112 Fundamentals of Programming and Computer Science
+15-112 Fundamentals of Programming and Computer Science                 
 18-493 Electroacoustics
  
 Courses listed are both core courses I'm currently taking and what I'm good at. By far, I have got "Course Average" 100.4 in 15-112, which mainly talks about computer fundamentals using Python, while the overall score is 90.7.
