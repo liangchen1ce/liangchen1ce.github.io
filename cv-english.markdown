@@ -8,18 +8,26 @@ permalink: /eng/vitae/
 
 ## Contact Information
 
-Student Apartment No.12, Beihang University, Beijing 100191, China       
-Email: jimoyouchong@hotmail.com       
-Telephone: +86 15011186520           
+5887 Darlington Rd, Pittsburgh, 15217, PA       
+Email: chenlian@andrew.cmu.edu       
+Telephone: (412)961-4600           
 Homepage: liangchen1ce.github.io
 
 ## Education Background
  
-2010 - Present, Undergraduate student in Beihang University, Beijing University of , China
+Sep. 2010 - June. 2014, Undergraduate student in Beihang University, Beijing, China
+Aug. 2014 - Present, Master studnt in Carnegie Mellon University, Pittsburgh, PA
+ 
+## Highlight Courses
+
+15-112 Fundamentals of Programming and Computer Science
+18-493 Electroacoustics
+ 
+Courses listed are both core courses I'm currently taking and what I'm good at. By far, I have got "Course Average" 100.4 in 15-112, which mainly talks about computer fundamentals using Python, while the overall score is 90.7.
  
 ## Research Experience
  
-Jun. 2013 - Present, Research Assistant, Speech and Hearing Research Centre, Peking University
+Jun. 2013 - June. 2014, Research Assistant, Speech and Hearing Research Centre, Peking University
 
 * Glottal Flow Estimation from Vowels 
 * Formant Estimation of High-pithed Singing Sound           
@@ -45,19 +53,15 @@ My work has been presented in the firm's official website.
 
 ## Computer Skills
 
-* Languages: C, VB, Verilog, Pure Data
+* Languages: Python, C, VB, Verilog, Pure Data
 * Web Technologies: HTML, CSS, Markdown
-* Operating Systems: 95% Windows, 5% GNU Linux
+* Operating Systems: 50% Windows, 5% GNU Linux, 45% OS X
 * Math & Statistical Package: Matlab, SPSS, Lindo
 * Office Application: LaTeX, Microsoft Office, Photoshop
-
-Listed computer skills are what I've done many programs with, and I also did 
-some work with Javascript, Ruby and something else. Recently, I get interested in Python.
 
 ## Language Ability
 
 * TOEFL: Reading 27, Listening 28, Speaking 19, Writing, 29, Total 103							
 * GRE: Verbal 152, Quantitative 170, AW 3.0
-
 
 ### To be updated
