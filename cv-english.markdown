@@ -54,7 +54,7 @@ My work has been presented in the firm's official website.
 
 ## Computer Skills
 
-* Languages: Python, C, VB, Verilog, Pure Data
+* Languages: Python, C, VB, Verilog, Pure Data, ChucK
 * Web Technologies: HTML, CSS, Markdown
 * Operating Systems: 50% Windows, 5% GNU Linux, 45% OS X
 * Math & Statistical Package: Matlab, SPSS, Lindo
