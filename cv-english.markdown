@@ -22,8 +22,9 @@ Aug. 2014 - Present, Master studnt in Carnegie Mellon University, Pittsburgh, PA
 
 15-112 Fundamentals of Programming and Computer Science                 
 18-493 Electroacoustics
+57-947 Sound Recording
  
-Courses listed are both core courses I'm currently taking and what I'm good at. By far, I have got "Course Average" 100.4 in 15-112, which mainly talks about computer fundamentals using Python, while the overall score is 90.7.
+Courses listed are core courses I'm currently taking and I'm good at. By far, I have got "Course Average" 100.4 in 15-112, which mainly talks about computer fundamentals using Python, while the overall score is 90.7.
  
 ## Research Experience
  
