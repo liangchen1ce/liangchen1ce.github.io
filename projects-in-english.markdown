@@ -30,7 +30,7 @@ permalink: /eng/projects/
 	
 <li class="listing-seperator">{{ 'Laptop Orchestra Performance' }}</li>
 {% for post in site.categories.projects %}
-{% if post.another-category == 'Software'%}
+{% if post.another-category == 'Laptop Orchestra Performance'%}
   <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
     <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
