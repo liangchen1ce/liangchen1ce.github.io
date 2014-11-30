@@ -65,6 +65,12 @@ $light-gray: #F6F6F6;
 	&:active { border: 2px solid #171515; }
 }
 
+#facebook {
+	border: 2px solid #d96254; color: #d96254;
+	&:hover	{ border: 2px solid #e3958b; }
+	&:active { border: 2px solid #be2c1c; }
+}
+
 .socialicon {
      width: 15px;
     margin-right: 5px;

@@ -510,6 +510,14 @@ code {
     border: 2px solid #adadad; }
   #linkedin:active {
     border: 2px solid #171515; }
+	
+#facebook {
+	border: 2px solid #333333;
+	color: #171515; }
+	#facebook:hover {
+	    border: 2px solid #344b8a; }
+	#facebook:active {
+	    border: 2px solid #333333; }
 
 .socialicon {
   width: 15px;
