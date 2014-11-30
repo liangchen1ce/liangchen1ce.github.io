@@ -1,7 +1,7 @@
 ---
 layout: posteng
 category: projects
-another-category: Music Performance
+another-category: Vocal Performance
 linka: redbeanpoem
 permalink: /eng/projects/redbeanpoem
 title: Red Bean Poem

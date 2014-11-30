@@ -1,7 +1,7 @@
 ---
 layout: posteng
 category: projects
-another-category: Music Performance
+another-category: Vocal Performance
 linka: yimengfolk
 permalink: /eng/projects/yimengfolk
 title: Yimeng Folk and three other songs

@@ -1,7 +1,7 @@
 ---
 layout: posteng
 category: projects
-another-category: Music Performance
+another-category: Vocal Performance
 linka: flowersjuvenile
 permalink: /eng/projects/flowersjuvenile
 title: Flowers and Juvenile
