@@ -9,8 +9,8 @@ permalink: /eng/vitae/
 
 ## Education Background
  
-Sep. 2010 - June. 2014, Undergraduate student in Beihang University, Beijing, China                      
-Aug. 2014 - Present, Master studnt in Carnegie Mellon University, Pittsburgh, PA
+Sep. 2010 - June. 2014   Electrical and Information Engineering, Beihang University, Beijing, China                      
+Aug. 2014 - Present      Music and Technology, Carnegie Mellon University, Pittsburgh, PA
  
 ## Highlight Courses
 
