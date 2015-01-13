@@ -25,7 +25,7 @@ Jun. 2013 - June. 2014, Research Assistant, Speech and Hearing Research Centre, 
 * Glottal Flow Estimation from Vowels 
 * Formant Estimation of High-pithed Singing Sound           
 
-Applied the iterative adaptive inverse ﬁltering (IAIF) method when inverse filtering, and improved the accuracy       
+Applied the iterative adaptive inverse ﬁltering (IAIF) method when inverse filtering, and improved accuracy       
 of glottal source estimation by downgrading the contribution of the vocal tract at glottal closure instants using weighed linear prediction (WLP).
 
 ##Professional Experience
