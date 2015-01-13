@@ -5,17 +5,16 @@ permalink: /eng/vitae/
 ---
 
 # Chen Liang
-
-
+&nbsp;
 ## Education Background
  
 Sep. 2010 - June. 2014&nbsp;&nbsp;&nbsp;&nbsp;Electrical and Information Engineering, Beihang University, Beijing, China                      
-Aug. 2014 - Present&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Music and Technology, Carnegie Mellon University, Pittsburgh, PA
+Aug. 2014 - Present&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Music and Technology, Carnegie Mellon University, Pittsburgh, PA
  
 ## Highlight Courses
 
 15-112 Fundamentals of Programming and Computer Science                 
-18-493 Electroacoustics
+18-493 Electroacoustics  
 57-947 Sound Recording
  
 Courses listed are core courses I'm currently taking and I'm good at. By far, I have got "Course Average" 100.4 in 15-112, which mainly talks about computer fundamentals using Python, while the overall score is 90.7.
