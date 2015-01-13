@@ -17,8 +17,7 @@ Aug. 2014 - Present&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;M
 18-493 Electroacoustics  
 57-947 Sound Recording
  
-Courses listed are core courses I'm currently taking and I'm good at. By far, I have got "Course Average" 100.4 in 15-112, which mainly talks about computer fundamentals using Python, while the overall score is 90.7.
- 
+Got A for all listed courses, which are the core courses I took in 2014 Fall. 
 ## Research Experience
  
 Jun. 2013 - June. 2014, Research Assistant, Speech and Hearing Research Centre, Peking University
@@ -26,7 +25,7 @@ Jun. 2013 - June. 2014, Research Assistant, Speech and Hearing Research Centre, 
 * Glottal Flow Estimation from Vowels 
 * Formant Estimation of High-pithed Singing Sound           
 
-I apply the iterative adaptive inverse ﬁltering (IAIF) method when inverse filtering, and improve the accuracy       
+Applied the iterative adaptive inverse ﬁltering (IAIF) method when inverse filtering, and improved the accuracy       
 of glottal source estimation by downgrading the contribution of the vocal tract at glottal closure instants using weighed linear prediction (WLP).
 
 ##Professional Experience
@@ -35,7 +34,7 @@ Jun. 2012 - Sep. 2012	Technical Assistant, Aviation Data Communication Corporati
 
 * Intern as test engineer and drafter
  
-Drafting the user specifications for Pre-Departure Clearance Link System-AVIDEP(DCL-AVIDEP) which is now used in 11 civil aviation air traffic control station.         
+Drafted the user specifications for Pre-Departure Clearance Link System-AVIDEP(DCL-AVIDEP) which is now used in 11 civil aviation air traffic control station.         
 My work has been presented in the firm's official website.
  
 ## Honors and Awards 
@@ -52,10 +51,5 @@ My work has been presented in the firm's official website.
 * Operating Systems: 50% Windows, 5% GNU Linux, 45% OS X
 * Math & Statistical Package: Matlab, SPSS, Lindo
 * Office Application: LaTeX, Microsoft Office, Photoshop
-
-## Language Ability
-
-* TOEFL: Reading 27, Listening 28, Speaking 19, Writing, 29, Total 103							
-* GRE: Verbal 152, Quantitative 170, AW 3.0
 
 ### To be updated
