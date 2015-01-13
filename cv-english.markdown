@@ -6,6 +6,7 @@ permalink: /eng/vitae/
 
 # Chen Liang
 
+
 ## Education Background
  
 Sep. 2010 - June. 2014, Undergraduate student in Beihang University, Beijing, China                      
