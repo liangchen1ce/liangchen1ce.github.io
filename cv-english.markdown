@@ -6,13 +6,6 @@ permalink: /eng/vitae/
 
 # Chen Liang
 
-## Contact Information
-
-5887 Darlington Rd, Pittsburgh, 15217, PA       
-Email: chenlian@andrew.cmu.edu       
-Telephone: (412)961-4600           
-Homepage: liangchen1ce.github.io
-
 ## Education Background
  
 Sep. 2010 - June. 2014, Undergraduate student in Beihang University, Beijing, China                      
