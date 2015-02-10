@@ -17,4 +17,7 @@ When I first started to choose letter to design, I just thought one of my initia
 When I was implementing this design, it was occurred to me that the bar of letter Q just should not stay right in the middle. Then I changed the position of the bar to middle to the right.
 
 #### Gallery
+![Q](https://farm8.staticflickr.com/7399/16464220146_1d778df37b_z.jpg)
+
+
 Here is the link to my [letter Q design](http://www.anitype.com/entry/agtzfmFuaXR5cGVjb3IUCxIHbGV0dGVycxiAgIDA4O2GCgw/).
