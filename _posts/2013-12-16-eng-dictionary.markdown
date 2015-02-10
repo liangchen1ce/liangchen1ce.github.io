@@ -16,4 +16,4 @@ This game is called Stream, made for [15112](http://www.kosbie.net/cmu/fall-14/1
 ![Inside](https://farm8.staticflickr.com/7365/16488365091_4726d72250_z.jpg "Fig2. Inside the game")
 
 #### Code and Video
-[code on Github](https://github.com/liangchen1ce/SuperDuperSimpleMario)  [video](https://www.youtube.com/watch?v=1IMnEXd693o)
+[code on Github](https://github.com/liangchen1ce/SuperDuperSimpleMario)          [video](https://www.youtube.com/watch?v=1IMnEXd693o)
