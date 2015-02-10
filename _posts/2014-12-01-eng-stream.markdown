@@ -3,7 +3,7 @@ layout: posteng
 category: projects
 another-category: Game
 linka: dictionary
-permalink: /eng/projects/dictionary
+permalink: /eng/projects/stream
 title: Super Mario-Alike Game -- Stream
 ---
 #### Background
