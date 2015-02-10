@@ -15,7 +15,7 @@ Here is a Pebble Emulator screenshot. To see the animation of my pebble watchfac
 
 
 #### Video and Code
-Here is the [real-world pebble watch video]()https://vimeo.com/117894630 ξ( ✿＞◡❛)
+Here is the [real-world pebble watch video](https://vimeo.com/117894630) ξ( ✿＞◡❛)
 
 
 And here is my [github repo](https://github.com/chenlianMT/Pebble_WatchFace).
