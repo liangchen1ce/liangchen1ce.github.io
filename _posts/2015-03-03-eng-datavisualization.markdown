@@ -6,7 +6,7 @@ permalink: /eng/datavisualization/
 title: Data Visualization Using 3d.js
 ---
 
-# FindNewAlbums
+## FindNewAlbums
 
 A simple implementation in [d3.js](http://d3js.org).
 
@@ -16,4 +16,4 @@ Data scrarched from [RYM](https://rateyourmusic.com). Using top 18 albums listed
 
 Open index.html file for data visualization.
 
-Check [here](/datavisualization.html) to see the example page.
+# Check [here](/datavisualization.html) to see the example page.
