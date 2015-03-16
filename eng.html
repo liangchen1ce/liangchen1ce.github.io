@@ -15,7 +15,11 @@ permalink: /eng/
   {% endif %}
   <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    {% if post.title == "Data Visualization Using 3d.js" %}
+    	<a href="/datavisualization.html">{{ post.title }}</a>
+    {% else %}
+    	<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    {% endif %}
   </li>
 {% endfor %}
 </ul>
