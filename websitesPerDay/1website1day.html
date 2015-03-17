@@ -18,10 +18,12 @@
     text-rendering: optimizeLegibility;
     margin-left: 30px;
     margin-top: -100px;
+    color: #156B87;
   }
 
   a {
     text-decoration: none;
+    color: #15876a;
   }
 </style>
 <p></p>
@@ -44,12 +46,12 @@ var X = 30,
     Padding = height/22;
 
 var myTexts = [
-    {text:"I'm Chen Liang and I'm planning to make a series of webpages.", artist:'Pink Floyd', cluster: 1, x: X, y: Y + Padding},
-    {text:"This idea is inspired by Jennifer Dewalt's '180 websites in 180 days' project.", artist:'The Velvet Underground + Nico', cluster: 2, x: X, y: Y + Padding * 2},
-    {text:"I'm not going to write webpages consequently, which exactly Jennifer does.", artist:'Pink Floyd', cluster: 3, x: X, y: Y + Padding * 3},
-    {text:"However, my intention is to make fast and dirty webpages, and train myself with different, interesting and easy-to-learn web-related techniques.", artist:'Pink Floyd', cluster: 4, x: X, y: Y + Padding * 3},
-    {text:"So it's very likely that I don't update everyday, even three days.", artist:'Pink Floyd', cluster: 5, x: X, y: Y + Padding * 3},
-    {text:'This is my very first one. Hope you like it!', artist:'The Beatles', cluster: 6, x: X, y: Y + Padding * 4}
+    {text:"I'm Chen Liang and I'm planning to make a series of webpages.", cluster: 1, x: X, y: Y + Padding},
+    {text:"This idea is inspired by Jennifer Dewalt's '180 websites in 180 days' project.", cluster: 2, x: X, y: Y + Padding * 2},
+    {text:"I'm not going to write webpages consequently, which exactly Jennifer does.", cluster: 3, x: X, y: Y + Padding * 3},
+    {text:"However, my intention is to make fast and dirty webpages, and train myself with different interesting, easy-to-learn web techniques.", cluster: 4, x: X, y: Y + Padding * 4},
+    {text:"So it's very likely that I don't update everyday, even every three days.", cluster: 5, x: X, y: Y + Padding * 5},
+    {text:'This is my very first one. Hope you like it!', cluster: 6, x: X, y: Y + Padding * 6}
   ];
 
 var svg = d3.select("body").append("svg")
