@@ -2,7 +2,7 @@
 layout: conteste
 title: Liang Chen&#62;English Blog
 name: English Blog
-permalink: /eng/
+permalink: /websitesPerDay/
 ---
 
 
@@ -15,11 +15,7 @@ permalink: /eng/
   {% endif %}
   <li class="listing-item">
     <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
-    {% if post.title == "One Website A Day!" %}
-    	<a href="/websitesPerDay/1website1day.html">{{ post.title }}</a>
-    {% else %}
-    	<a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    {% endif %}
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
   </li>
 {% endfor %}
 </ul>

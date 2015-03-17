@@ -7,4 +7,4 @@ permalink: /websitesPerDay/1website1day.html
 title: One Website A Day!
 ---
 
-link: /1website1day.html
+link: /websitesPerDay/1website1day.html
