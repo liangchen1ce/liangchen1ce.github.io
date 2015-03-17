@@ -1,8 +1,9 @@
 ---
 layout: posteng
 category: eng
+category: webpages
 linka: websites
-permalink: /eng/websites/
+permalink: /websitesPerDay/1website1day.html
 title: One Website A Day!
 ---
 
