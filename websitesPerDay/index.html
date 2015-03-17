@@ -8,12 +8,12 @@ permalink: /websitesPerDay/
 
 <ul class="listing">
 
+<li class="listing-seperator">{{ 'TAG: One Webpage Per Day' }}</li>
+
 {% for post in site.tags.webpages %}
-  {% if post.tag == 'websites'%}
 	<li class="listing-item">
 	    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
 	    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
 	</li>
-  {% endif %}
 {% endfor %}
 </ul>
