@@ -1,7 +1,7 @@
 ---
 layout: posteng
 category: eng
-category: webpages
+tag: webpages
 linka: websites
 permalink: /websitesPerDay/1website1day.html
 title: One Website A Day!
