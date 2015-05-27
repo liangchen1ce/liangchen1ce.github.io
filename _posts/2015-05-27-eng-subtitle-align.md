@@ -45,7 +45,7 @@ The alignment error is showed in this table:
 
 | Song | Average | Standard Deviation |
 
-|--------|--------|-|
+|--------|:--------:|--------:|
 
 |   Creep     |   1006ms     | 1.65 |
 
@@ -58,7 +58,7 @@ Noter: most outliners would be improved by better vocal appearence detection alg
 
 | Song | Average | Standard Deviation |
 
-|--------|--------|-|
+|--------|--------|--------|
 
 |   Creep     |   546ms     | 0.76 |
 
