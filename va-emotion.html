@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>V-A space vs. mood tags</title>
+<style>
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+#title {
+    font-family: "Oswald", serif;
+}
+
+#artist {
+    font-family: "Oswald", serif;
+}
+
+#dashboard {
+  margin-left: 30%;
+}
+
+body{
+    width:1050px;
+    margin:50px auto;
+    margin-left: auto;
+}
+path {  stroke: #fff; }
+
+p {
+  margin-left: auto;
+}
+
+
+</style>
+<body>
+<div id='dashboard'>
+</div>
+<script src="lib/d3.v3.min.js"></script>
+<script src="lib/jquery-1.11.1.min.js"></script>
+<script>
+var audio = $("<audio>");
+
+function dashboard(id, fData){
+    var numOfTags = 8;
+    var segColor = d3.scale.category10().domain(d3.range(numOfTags));
+
+    data = []
+    for (var key in fData) {
+        item = fData[key];
+        newItem = {"SpotifyID": item["SpotifyID"],
+                   "artist_name": item["artist_name"],
+                   "arousal": item["audio_summary"]["energy"],
+                   "valence": item["audio_summary"]["valence"],
+                   "title": item["title"],
+                   "tags": item["tags"]};
+        data.push(newItem);
+    }
+    
+    // function to handle pieChart.
+    function pieChart(){
+        pD = [{type: "excited", freq: 1}, 
+              {type: "happy", freq: 1}, 
+              {type: "relaxed", freq: 1}, 
+              {type: "calm", freq: 1}, 
+              {type: "sad", freq: 1}, 
+              {type: "miserable", freq: 1}, 
+              {type: "annoyed", freq: 1}, 
+              {type: "aroused", freq: 1}]
+
+        var pC ={},    pieDim ={w:500, h: 500};
+        pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
+        var maxX = pieDim.r - 10;
+                
+        // create svg for pie chart.
+        var piesvg = d3.select(id).append("svg")
+            .attr("width", pieDim.w).attr("height", pieDim.h).append("g")
+            .attr("transform", "translate("+pieDim.w/2+","+pieDim.h/2+")");
+
+        // create function to draw the arcs of the pie slices.
+        var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
+
+        // create a function to compute the pie slice angles.
+        var pie = d3.layout.pie().sort(null).value(function(d) { return d.freq; })
+                  .startAngle(Math.PI/8).endAngle(Math.PI*(2+1/8));
+
+        // Draw the pie slices.
+        var arcs = piesvg.selectAll("g.arc")
+                   .data(pie(pD))
+                   .enter()
+                   .append("g")
+                   .attr("class", "arc");
+
+        arcs.append("path").attr("d", arc)
+            .each(function(d) { this._current = d; })
+            .style("fill", function(d) { return segColor(d.data.type); })
+            .attr("id", function(d) { return d.data.type; });
+
+        arcs.append("text")
+            .attr("transform", function(d) {
+                return "translate(" + arc.centroid(d) + ")";
+            })
+            .attr("text-anchor", "middle")
+            .text(function(d) {
+                return d.data.type;
+            })
+            .style('fill', '#fff');
+
+        // set up x-axis
+        var xValue = function(d) { return d.valence;},
+            xScale = d3.scale.linear().domain([0, 1]).range([-maxX, maxX]),
+            xMap = function(d) { return xScale(xValue(d))};
+
+        // set up y-axis
+        var yValue = function(d) { return d.arousal;},
+            yScale = d3.scale.linear().domain([0, 1]).range([maxX, -maxX]),
+            yMap = function(d) { return yScale(yValue(d))};
+
+        piesvg.selectAll(".dot")
+              .data(data)
+              .enter()
+              .append("circle").attr("r", 3.5).attr("cx", xMap).attr("cy", yMap)
+              .on("mouseover", mouseover)
+              .on("mouseout", mouseout)
+              .on("click", click);
+
+        function mouseover(d) {
+            for (var i in d.tags) {
+                piesvg.select("#" + d.tags[i])
+                      .style('opacity', 0.5);
+            }
+            dis.update(d);
+            console.log("valence: " + d.valence + "  arousal: " + d.arousal);
+            console.log("spotify:" + d.SpotifyID);
+        }
+
+        function mouseout(d) {
+            piesvg.selectAll("path")
+                  .style('opacity', 1);
+        }
+
+        function click(d) {
+          playTrack(d.SpotifyID);
+        }
+
+        function playTrack(ID) {
+          var url = "https://api.spotify.com/v1/tracks/" + ID;
+          $.getJSON(url).then(
+            function(response) {
+                play(response.preview_url);
+            },
+            function() {
+                error('get top track trouble');
+            }
+          );
+        }
+
+        function play(url) {
+          audio.attr('src', url);
+          audio.get(0).play();
+        }
+
+        return pC;
+    }
+    
+    // function to handle description.
+    function description(){
+        var dis = {};
+            
+        // create description.
+        var description = d3.select(id).append("svg").style('width', "900").append("g");
+
+        description.append("text")
+                    .attr("id", "title")
+                    .attr("x", 30)
+                    .attr("y", 80)
+                    .style("font-size", "32px")
+                    .style("text-anchor", "left")
+                    .text("Song Title");
+
+        description.append("text")
+                    .attr("id", "artist")
+                    .attr("x", 30)
+                    .attr("y", 110)
+                    .style("font-size", "32px")
+                    .style("text-anchor", "left")
+                    .text("Artist");
+        
+        // Utility function to be used to update the description.
+        dis.update = function(nD){
+            description.select("#title").text(nD.title);
+            description.select("#artist").text(nD.artist_name);
+        }
+
+        return dis;
+    }
+    
+    var pC = pieChart(), // create the pie-chart.
+        dis= description(); // create the description.
+}
+</script>
+
+<script>
+d3.json("data/echoNestDictionary.json", function(error, data) {
+    dashboard('#dashboard', data);
+});
+</script>
+</body>
+<p>This is a simple visualization on how valence and arousal data in V-A space can relate to human labelled emotion tags. Valence and arousal data are fetched from the Echo Nest api. Click on the spots, 30-sec preview will be played(hosted on Spotify).</p>
