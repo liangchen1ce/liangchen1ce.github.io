@@ -85,7 +85,8 @@ Larger dataset and tests with more songs need to be done.
 #### A visualization of the output
 ![app](https://farm8.staticflickr.com/7761/17981486829_f1e2189de3_c.jpg)
 
-
+#### Video
+[Aligner Demo](https://vimeo.com/129148954)
 _ _ _
 
 ## Reference
