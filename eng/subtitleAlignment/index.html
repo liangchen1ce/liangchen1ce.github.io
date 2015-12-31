@@ -47,109 +47,157 @@
     
   </section>
   <section class="post">
-  <hr>
+  <hr />
 
-<h2>Addressing the Problem</h2>
+<h2 id="addressing-the-problem">Addressing the Problem</h2>
+<p>#### What is the Problem?<br />
+We want to make a system that align singing in polyphonic music audio with subtitles, which is basically textual lyrics with time stamp for each line.</p>
 
-<h4>What is the Problem?</h4>
-
-<p>We want to make a system that align singing in polyphonic music audio with subtitles, which is basically textual lyrics with time stamp for each line. </p>
-
-<h4>Difficulties</h4>
-
+<h4 id="difficulties">Difficulties</h4>
 <ol>
-<li>Accompaniment could reduce recognition accuracy.</li>
-<li>Variability of phonation in singing will also affect the system.</li>
+  <li>Accompaniment could reduce recognition accuracy.</li>
+  <li>Variability of phonation in singing will also affect the system.</li>
 </ol>
 
-<hr>
+<hr />
 
-<h2>System Overview</h2>
+<h2 id="system-overview">System Overview</h2>
+<p>#### Solution for Mentioned Difficulties<br />
+1. Apply source separation to extract vocal line.<br />
+2. Adapt HMM models using singing voice training data to overcome the difference between speech and singing.</p>
 
-<h4>Solution for Mentioned Difficulties</h4>
+<h4 id="desired-structure">Desired Structure</h4>
+<p><img src="https://farm8.staticflickr.com/7722/18120282265_8ceb5f848d_z.jpg" alt="Structure" /></p>
 
+<h4 id="implementeion">Implementeion</h4>
 <ol>
-<li>Apply source separation to extract vocal line.</li>
-<li>Adapt HMM models using singing voice training data to overcome the difference between speech and singing.</li>
+  <li>Trained HMM using <strong><a href="http://festvox.org/cmu_arctic/">ARCTIC</a></strong> speech database, while an annoted singing phonemes database is not available.</li>
+  <li>Created phonetic transcription of the subtitle.</li>
+  <li>Use HCopy in HTK to get LPC features of the phonetic transcription.</li>
+  <li>Use HVite in HTK to get Veterbi forced alignment result.</li>
 </ol>
 
-<h4>Desired Structure</h4>
-
-<p><img src="https://farm8.staticflickr.com/7722/18120282265_8ceb5f848d_z.jpg" alt="Structure"></p>
-
-<h4>Implementeion</h4>
-
+<h4 id="things-could-be-improved">Things could be Improved</h4>
 <ol>
-<li>Trained HMM using <strong><a href="http://festvox.org/cmu_arctic/">ARCTIC</a></strong> speech database, while an annoted singing phonemes database is not available.</li>
-<li>Created phonetic transcription of the subtitle.</li>
-<li>Use HCopy in HTK to get LPC features of the phonetic transcription.</li>
-<li>Use HVite in HTK to get Veterbi forced alignment result.</li>
+  <li>Should use singing dataset to adapt this HMM model.</li>
+  <li>Should automatically add entries which are not available for CMU phonemes dictionary.</li>
+  <li>Should apply vocal activity detection.</li>
 </ol>
 
-<h4>Things could be Improved</h4>
+<hr />
 
-<ol>
-<li>Should use singing dataset to adapt this HMM model.</li>
-<li>Should automatically add entries which are not available for CMU phonemes dictionary.</li>
-<li>Should apply vocal activity detection.</li>
-</ol>
+<h2 id="result">Result</h2>
+<p>#### The Alignment output<br />
+The alignment error is showed in this table:</p>
 
-<hr>
+<table>
+  <tbody>
+    <tr>
+      <td>Song</td>
+      <td>Average</td>
+      <td>Standard Deviation</td>
+    </tr>
+  </tbody>
+</table>
 
-<h2>Result</h2>
+<p>|——–|:——–:|——–:|</p>
 
-<h4>The Alignment output</h4>
+<table>
+  <tbody>
+    <tr>
+      <td>Creep</td>
+      <td>1006ms</td>
+      <td>1.65</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>The alignment error is showed in this table:</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Creep(vocal only)</td>
+      <td>1129ms</td>
+      <td>1.16</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>| Song | Average | Standard Deviation |</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Blank Space</td>
+      <td>429ms</td>
+      <td>0.81</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>|--------|:--------:|--------:|</p>
-
-<p>|   Creep     |   1006ms     | 1.65 |</p>
-
-<p>|   Creep(vocal only)     |    1129ms    | 1.16 |</p>
-
-<p>|   Blank Space     |    429ms    | 0.81 |</p>
-
-<p>After eliminating outliners(error greater than 3s):
+<p>After eliminating outliners(error greater than 3s):<br />
 Noter: most outliners would be improved by better vocal appearence detection algorithm, and some outliners are caused by wrongly labelled subtitle files.</p>
 
-<p>| Song | Average | Standard Deviation |</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Song</td>
+      <td>Average</td>
+      <td>Standard Deviation</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>|--------|--------|--------|</p>
+<p>|——–|——–|——–|</p>
 
-<p>|   Creep     |   546ms     | 0.76 |</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Creep</td>
+      <td>546ms</td>
+      <td>0.76</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>|   Creep(vocal only)     |    913ms    | 0.83 |</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Creep(vocal only)</td>
+      <td>913ms</td>
+      <td>0.83</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>|   Blank Space     |    323ms    | 0.26 |</p>
+<table>
+  <tbody>
+    <tr>
+      <td>Blank Space</td>
+      <td>323ms</td>
+      <td>0.26</td>
+    </tr>
+  </tbody>
+</table>
 
-<p>Graph for each lyrics line&#39;s error is as followed:
-<img src="https://farm8.staticflickr.com/7782/17546272983_426fd1c3b4_z.jpg" alt="Creep">
-<img src="https://farm8.staticflickr.com/7757/17978973498_9ae5f20db5_z.jpg" alt="CreepVocal">
-<img src="https://farm9.staticflickr.com/8762/17979147160_07450cee83_z.jpg" alt="BlankSpace"></p>
+<p>Graph for each lyrics line’s error is as followed:<br />
+<img src="https://farm8.staticflickr.com/7782/17546272983_426fd1c3b4_z.jpg" alt="Creep" /><br />
+<img src="https://farm8.staticflickr.com/7757/17978973498_9ae5f20db5_z.jpg" alt="CreepVocal" /><br />
+<img src="https://farm9.staticflickr.com/8762/17979147160_07450cee83_z.jpg" alt="BlankSpace" /></p>
 
-<h4>Thoughts about the Result</h4>
+<h4 id="thoughts-about-the-result">Thoughts about the Result</h4>
 
 <p>Given the performance between two songs, one guess is the length of lyrics lines provided in subtitle files would influence the detection of words, for that a large portion of accompaniment has been eliminated. Also, if normalized error is measured, the difference between songs might be more alike.</p>
 
-<p>About the effect of vocal separation -- I didn&#39;t expect the result would be like this... One thought is our models include noise model, whereas the vocal-only file doesn&#39;t include much noise. </p>
+<p>About the effect of vocal separation – I didn’t expect the result would be like this… One thought is our models include noise model, whereas the vocal-only file doesn’t include much noise.</p>
 
 <p>Larger dataset and tests with more songs need to be done.</p>
 
-<h4>A visualization of the output</h4>
+<h4 id="a-visualization-of-the-output">A visualization of the output</h4>
+<p><img src="https://farm8.staticflickr.com/7761/17981486829_f1e2189de3_c.jpg" alt="app" /></p>
 
-<p><img src="https://farm8.staticflickr.com/7761/17981486829_f1e2189de3_c.jpg" alt="app"></p>
+<h4 id="video">Video</h4>
+<p><a href="https://vimeo.com/129148954">Aligner Demo</a><br />
+_ _ _</p>
 
-<h4>Video</h4>
-
-<p><a href="https://vimeo.com/129148954">Aligner Demo</a></p>
-
-<hr>
-
-<h2>Reference</h2>
-
+<h2 id="reference">Reference</h2>
 <p>Mesaros A, Virtanen T. Automatic alignment of music audio and lyrics[C]//Proceedings of the 11th Int. Conference on Digital Audio Effects (DAFx-08). 2008.</p>
 
 <p>Mesaros A. Singing voice identification and lyrics transcription for music information retrieval invited paper[C]//Speech Technology and Human-Computer Dialogue (SpeD), 2013 7th Conference on. IEEE, 2013: 1-10.</p>
