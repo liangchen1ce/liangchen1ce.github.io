@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="梁琛">
+    <title>Subtitle-Music Alignment</title>
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+    <link rel="stylesheet" href="/media/css/fontawesome.css">
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script type="text/javascript">
+      hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+    <div id="main" role="main">
+      <header>
+        
+            <h1>All the world's a stage</h1>
+        
+      </header>
+		  <nav>
+        <span><a title="POSTS" class="" href="/eng/">POSTS</a></span>
+        <span><a title="PROJECTS" class="" href="/eng/projects/">PROJECTS</a></span>
+        <span><a title="TAGS" class="" href="/eng/tags/">TAGS</a></span>
+        <span><a title="VITAE" class="" href="/eng/vitae">VITAE</a></span>
+        <span><a title="ABOUT" class="" href="/">ABOUT</a></span>
+		  </nav>
+      <article class="content">
+  			<section class="post">
+  					<article>
+  <section class="title">
+    <h2>Subtitle-Music Alignment </h2>
+  </section>
+  <section class="meta">
+    <span class="time">
+      <time datetime="2015-05-27">2015-05-27</time>
+    </span>
+    
+      <span class="tags">
+        
+          <a href="/tags/lyricsAlignment" title="lyricsAlignment">#lyricsAlignment</a>
+        
+      </span>
+    
+  </section>
+  <section class="post">
+  <hr>
+
+<h2>Addressing the Problem</h2>
+
+<h4>What is the Problem?</h4>
+
+<p>We want to make a system that align singing in polyphonic music audio with subtitles, which is basically textual lyrics with time stamp for each line. </p>
+
+<h4>Difficulties</h4>
+
+<ol>
+<li>Accompaniment could reduce recognition accuracy.</li>
+<li>Variability of phonation in singing will also affect the system.</li>
+</ol>
+
+<hr>
+
+<h2>System Overview</h2>
+
+<h4>Solution for Mentioned Difficulties</h4>
+
+<ol>
+<li>Apply source separation to extract vocal line.</li>
+<li>Adapt HMM models using singing voice training data to overcome the difference between speech and singing.</li>
+</ol>
+
+<h4>Desired Structure</h4>
+
+<p><img src="https://farm8.staticflickr.com/7722/18120282265_8ceb5f848d_z.jpg" alt="Structure"></p>
+
+<h4>Implementeion</h4>
+
+<ol>
+<li>Trained HMM using <strong><a href="http://festvox.org/cmu_arctic/">ARCTIC</a></strong> speech database, while an annoted singing phonemes database is not available.</li>
+<li>Created phonetic transcription of the subtitle.</li>
+<li>Use HCopy in HTK to get LPC features of the phonetic transcription.</li>
+<li>Use HVite in HTK to get Veterbi forced alignment result.</li>
+</ol>
+
+<h4>Things could be Improved</h4>
+
+<ol>
+<li>Should use singing dataset to adapt this HMM model.</li>
+<li>Should automatically add entries which are not available for CMU phonemes dictionary.</li>
+<li>Should apply vocal activity detection.</li>
+</ol>
+
+<hr>
+
+<h2>Result</h2>
+
+<h4>The Alignment output</h4>
+
+<p>The alignment error is showed in this table:</p>
+
+<p>| Song | Average | Standard Deviation |</p>
+
+<p>|--------|:--------:|--------:|</p>
+
+<p>|   Creep     |   1006ms     | 1.65 |</p>
+
+<p>|   Creep(vocal only)     |    1129ms    | 1.16 |</p>
+
+<p>|   Blank Space     |    429ms    | 0.81 |</p>
+
+<p>After eliminating outliners(error greater than 3s):
+Noter: most outliners would be improved by better vocal appearence detection algorithm, and some outliners are caused by wrongly labelled subtitle files.</p>
+
+<p>| Song | Average | Standard Deviation |</p>
+
+<p>|--------|--------|--------|</p>
+
+<p>|   Creep     |   546ms     | 0.76 |</p>
+
+<p>|   Creep(vocal only)     |    913ms    | 0.83 |</p>
+
+<p>|   Blank Space     |    323ms    | 0.26 |</p>
+
+<p>Graph for each lyrics line&#39;s error is as followed:
+<img src="https://farm8.staticflickr.com/7782/17546272983_426fd1c3b4_z.jpg" alt="Creep">
+<img src="https://farm8.staticflickr.com/7757/17978973498_9ae5f20db5_z.jpg" alt="CreepVocal">
+<img src="https://farm9.staticflickr.com/8762/17979147160_07450cee83_z.jpg" alt="BlankSpace"></p>
+
+<h4>Thoughts about the Result</h4>
+
+<p>Given the performance between two songs, one guess is the length of lyrics lines provided in subtitle files would influence the detection of words, for that a large portion of accompaniment has been eliminated. Also, if normalized error is measured, the difference between songs might be more alike.</p>
+
+<p>About the effect of vocal separation -- I didn&#39;t expect the result would be like this... One thought is our models include noise model, whereas the vocal-only file doesn&#39;t include much noise. </p>
+
+<p>Larger dataset and tests with more songs need to be done.</p>
+
+<h4>A visualization of the output</h4>
+
+<p><img src="https://farm8.staticflickr.com/7761/17981486829_f1e2189de3_c.jpg" alt="app"></p>
+
+<h4>Video</h4>
+
+<p><a href="https://vimeo.com/129148954">Aligner Demo</a></p>
+
+<hr>
+
+<h2>Reference</h2>
+
+<p>Mesaros A, Virtanen T. Automatic alignment of music audio and lyrics[C]//Proceedings of the 11th Int. Conference on Digital Audio Effects (DAFx-08). 2008.</p>
+
+<p>Mesaros A. Singing voice identification and lyrics transcription for music information retrieval invited paper[C]//Speech Technology and Human-Computer Dialogue (SpeD), 2013 7th Conference on. IEEE, 2013: 1-10.</p>
+
+<p>Mauch M, Fujihara H, Goto M. Song Prompter: An accompaniment system based on the automatic alignment of lyrics and chords to audio[C]//Late-breaking session at the 10th International Conference on Music Information Retrieval. 2010.</p>
+
+  </section>
+  
+  <section class="comment">
+  <div class="divider"></div>
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'liangchen2be'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </section>
+ 
+</article>
+
+        </section>
+      </article>
+    </div> 
+  </body>
+</html>
