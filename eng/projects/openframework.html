@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="author" content="梁琛">
-    <title>Basic Sound Effects used in Film Scenes</title>
+    <title>ofxAudioUnit + ofxParticleEmitter -> AmplitudeTrigger and ParameterChanger</title>
     <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/github.css">
@@ -31,14 +31,16 @@
         <section class="homepost">
           <article>
             <section class="title">
-              <h2>Basic Sound Effects used in Film Scenes </h2>
+              <h2>ofxAudioUnit + ofxParticleEmitter -> AmplitudeTrigger and ParameterChanger </h2>
             </section>
             <section class="meta">
               <span class="time">
-                <time datetime="2013-10-29">2013-10-29</time>
+                <time datetime="2015-02-07">2015-02-07</time>
               </span>
               
                 <span class="tags">
+                  
+                    <a href="/tags/visualization" title="visualization">#visualization</a>
                   
                 </span>
               
@@ -47,29 +49,33 @@
               <link rel="stylesheet" href="/media/css/toc.css">
               <style type="text/css"></style>
               <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
-              <p>I discovered an intersting <a href="http://obiwannabe.co.uk/">website</a> generating various sound effects which can be used in movie scenes, games and other situations. The website holder as well as sound designer is the author of book “Designing Sound”. That book is quite absorbing and it mainly talks about sound design in movies and games. Similarly, it’s also the theme of this website. I’m going to demonstrate some audio outputs using codes offered on this site.</p>
+              <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <span id="toc-container">
+    <a href="#tocAnchor-1-1" class="TOC">1 Background</a>
+  </span>
+  <span id="toc-container">
+    <a href="#tocAnchor-1-2" class="TOC">2 Video and Code</a>
+  </span>
+  <body><h4 id="tocAnchor-1-1" class="toc_anchor">Background</h4>
 
-<ul>
-  <li><a href="http://lollichock.tumblr.com/post/68629487248/audio_player_iframe/lollichock/tumblr_mx3z0i8qhh1snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68629487248%2Ftumblr_mx3z0i8qhh1snsvcq&amp;color=black&amp;simple=1">Explosions</a></li>
-</ul>
+<p>OpenFramework is a rather interesting open source toolkit for creative coding, basing on C++. I chose two ofxAddons: <a href="https://github.com/admsyn/ofxAudioUnit">ofxAudioUnit</a> and <a href="https://github.com/sroske/ofxParticleEmitter">ofxParticleEmitter</a> to create openFramework projects because it’s always a great idea for me to make audio interaction applications.</p>
 
-<p><img src="https://github.com/liangchen1ce/liangchen1ce.github.io/raw/master/jpg/bomb.JPG" alt="bomb" title="pure data patch" /></p>
+<p>I made an attempt to use these two addons, created ParameterChanger combining the examples from these two addons. As the mouse moves, the parameters of music will change, more specifically, the x axis will affect the playback rate, and the y axis will affect the cutoff frequency. Furthermore, position of particle will also be affected by mouse position.</p>
 
-<p>Click “boom” in the patch, you will hear a sound same as the linked voice.</p>
+<p><img src="http://golancourses.net/2015/wp-content/uploads/2015/02/oie_84348D0slX8TO.png" alt="ParameterChanger" /></p>
 
-<ul>
-  <li><a href="http://lollichock.tumblr.com/post/68631982575/audio_player_iframe/lollichock/tumblr_mx40e8djEq1snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68631982575%2Ftumblr_mx40e8djEq1snsvcq&amp;color=black&amp;simple=1">Broken robot in old SciFi</a></li>
-</ul>
+<p>After the initial attempt, I try to use environment sound to interact with particle emitter.</p>
 
-<p>The timbre is random along time, because the randomness of fundamental frequency and harmonics.</p>
+<p><img src="https://farm8.staticflickr.com/7460/16488617251_40b80a4cb6_z.jpg" alt="AmplitudeTrigger" /></p>
 
-<ul>
-  <li><a href="http://lollichock.tumblr.com/post/68634614313/audio_player_iframe/lollichock/tumblr_mx41t8XYW11snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68634614313%2Ftumblr_mx41t8XYW11snsvcq&amp;color=black&amp;simple=1">Cosmic</a></li>
-</ul>
+<h4 id="tocAnchor-1-2" class="toc_anchor">Video and Code</h4>
 
-<p>This patch generates up-arpeggiator sound by synchronously combining 3 voices.</p>
+<p>These are the video links for <a href="https://vimeo.com/119024616">AmplitudeTrigger</a> and <a href="https://vimeo.com/119024714">ParameterChanger</a>.</p>
 
-<p>Soure code can be found at http://obiwannabe.co.uk/</p>
+<p>And here are my github repos. <a href="https://github.com/chenlianMT/AmplitudeTrigger">AmplitudeTrigger</a> &amp;&amp; <a href="https://github.com/chenlianMT/ParameterChanger">ParameterChanger</a>.</p>
+</body>
+</html>
 
             </section>
             

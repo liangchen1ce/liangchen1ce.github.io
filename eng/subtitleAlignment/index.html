@@ -4,74 +4,89 @@
     <meta charset="UTF-8">
     <meta name="author" content="梁琛">
     <title>Subtitle-Music Alignment</title>
-    <link rel="shortcut icon" href="/favicon.ico">
     <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
     <link rel="stylesheet" href="/media/css/style.css">
     <link rel="stylesheet" href="/media/css/github.css">
     <link rel="stylesheet" href="/media/css/fontawesome.css">
     <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
     <script type="text/javascript">
-      hljs.initHighlightingOnLoad();
+    hljs.initHighlightingOnLoad();
     </script>
   </head>
   <body>
     <div id="main" role="main">
       <header>
         
-            <h1>All the world's a stage</h1>
+          <h1>All the world's a stage</h1>
         
       </header>
-		  <nav>
+      <nav>
         <span><a title="POSTS" class="" href="/eng/">POSTS</a></span>
         <span><a title="PROJECTS" class="" href="/eng/projects/">PROJECTS</a></span>
         <span><a title="TAGS" class="" href="/eng/tags/">TAGS</a></span>
         <span><a title="VITAE" class="" href="/eng/vitae">VITAE</a></span>
         <span><a title="ABOUT" class="" href="/">ABOUT</a></span>
-		  </nav>
+      </nav>
       <article class="content">
-  			<section class="post">
-  					<link rel="stylesheet" href="../media/css/github-markdown.css">
-<article>
-  <section class="title">
-    <h2>Subtitle-Music Alignment </h2>
-  </section>
-  <section class="meta">
-    <span class="time">
-      <time datetime="2015-05-27">2015-05-27</time>
-    </span>
-    
-      <span class="tags">
-        
-          <a href="/tags/lyricsAlignment" title="lyricsAlignment">#lyricsAlignment</a>
-        
-      </span>
-    
-  </section>
-  <section class="post markdown-body">
-  <h2 id="addressing-the-problem">Addressing the Problem</h2>
+        <section class="homepost">
+          <article>
+            <section class="title">
+              <h2>Subtitle-Music Alignment </h2>
+            </section>
+            <section class="meta">
+              <span class="time">
+                <time datetime="2015-05-27">2015-05-27</time>
+              </span>
+              
+                <span class="tags">
+                  
+                    <a href="/tags/lyricsAlignment" title="lyricsAlignment">#lyricsAlignment</a>
+                  
+                </span>
+              
+            </section>
+            <section class="post markdown-body">
+              <link rel="stylesheet" href="/media/css/toc.css">
+              <style type="text/css"></style>
+              <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
+              <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <span id="toc-container">
+    <a href="#tocAnchor-1-1" class="TOC">1 Addressing the Problem</a>
+  </span>
+  <span id="toc-container">
+    <a href="#tocAnchor-1-2" class="TOC">2 System Overview</a>
+  </span>
+  <span id="toc-container">
+    <a href="#tocAnchor-1-3" class="TOC">3 Result</a>
+  </span>
+  <span id="toc-container">
+    <a href="#tocAnchor-1-4" class="TOC">4 Reference</a>
+  </span>
+  <body><h3 id="tocAnchor-1-1" class="toc_anchor">Addressing the Problem</h3>
 
-<h3 id="what-is-the-problem">What is the Problem?</h3>
+<h4 id="what-is-the-problem">What is the Problem?</h4>
 <p>We want to make a system that align singing in polyphonic music audio with subtitles, which is basically textual lyrics with time stamp for each line.</p>
 
-<h3 id="difficulties">Difficulties</h3>
+<h4 id="difficulties">Difficulties</h4>
 <ol>
   <li>Accompaniment could reduce recognition accuracy.</li>
   <li>Variability of phonation in singing will also affect the system.</li>
 </ol>
 
-<h2 id="system-overview">System Overview</h2>
+<h3 id="tocAnchor-1-2" class="toc_anchor">System Overview</h3>
 
-<h3 id="solution-for-mentioned-difficulties">Solution for Mentioned Difficulties</h3>
+<h4 id="solution-for-mentioned-difficulties">Solution for Mentioned Difficulties</h4>
 <ol>
   <li>Apply source separation to extract vocal line.</li>
   <li>Adapt HMM models using singing voice training data to overcome the difference between speech and singing.</li>
 </ol>
 
-<h3 id="desired-structure">Desired Structure</h3>
+<h4 id="desired-structure">Desired Structure</h4>
 
 <p><img src="https://farm8.staticflickr.com/7722/18120282265_8ceb5f848d_z.jpg" alt="Structure" /></p>
 
-<h3 id="implementeion">Implementeion</h3>
+<h4 id="implementeion">Implementeion</h4>
 
 <ol>
   <li>Trained HMM using <strong><a href="http://festvox.org/cmu_arctic/">ARCTIC</a></strong> speech database, while an annoted singing phonemes database is not available.</li>
@@ -80,7 +95,7 @@
   <li>Use HVite in HTK to get Veterbi forced alignment result.</li>
 </ol>
 
-<h3 id="things-could-be-improved">Things could be Improved</h3>
+<h4 id="things-could-be-improved">Things could be Improved</h4>
 
 <ol>
   <li>Should use singing dataset to adapt this HMM model.</li>
@@ -88,9 +103,9 @@
   <li>Should apply vocal activity detection.</li>
 </ol>
 
-<h2 id="result">Result</h2>
+<h3 id="tocAnchor-1-3" class="toc_anchor">Result</h3>
 
-<h3 id="the-alignment-output">The Alignment output</h3>
+<h4 id="the-alignment-output">The Alignment output</h4>
 
 <p>The alignment error is showed in this table:</p>
 
@@ -156,7 +171,7 @@ Noter: most outliners would be improved by better vocal appearence detection alg
 <img src="https://farm8.staticflickr.com/7757/17978973498_9ae5f20db5_z.jpg" alt="CreepVocal" /><br />
 <img src="https://farm9.staticflickr.com/8762/17979147160_07450cee83_z.jpg" alt="BlankSpace" /></p>
 
-<h3 id="thoughts-about-the-result">Thoughts about the Result</h3>
+<h4 id="thoughts-about-the-result">Thoughts about the Result</h4>
 
 <p>Given the performance between two songs, one guess is the length of lyrics lines provided in subtitle files would influence the detection of words, for that a large portion of accompaniment has been eliminated. Also, if normalized error is measured, the difference between songs might be more alike.</p>
 
@@ -164,43 +179,50 @@ Noter: most outliners would be improved by better vocal appearence detection alg
 
 <p>Larger dataset and tests with more songs need to be done.</p>
 
-<h4 id="a-visualization-of-the-output">A visualization of the output</h4>
+<h5 id="a-visualization-of-the-output">A visualization of the output</h5>
 <p><img src="https://farm8.staticflickr.com/7761/17981486829_f1e2189de3_c.jpg" alt="app" /></p>
 
-<h3 id="video">Video</h3>
-<p><a href="https://vimeo.com/129148954">Aligner Demo</a></p>
+<h4 id="video">Video</h4>
+<iframe src="https://player.vimeo.com/video/129148954?portrait=0" width="600" height="350" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
 
-<h2 id="reference">Reference</h2>
+<h3 id="tocAnchor-1-4" class="toc_anchor">Reference</h3>
 <p>Mesaros A, Virtanen T. Automatic alignment of music audio and lyrics[C]//Proceedings of the 11th Int. Conference on Digital Audio Effects (DAFx-08). 2008.</p>
 
 <p>Mesaros A. Singing voice identification and lyrics transcription for music information retrieval invited paper[C]//Speech Technology and Human-Computer Dialogue (SpeD), 2013 7th Conference on. IEEE, 2013: 1-10.</p>
 
 <p>Mauch M, Fujihara H, Goto M. Song Prompter: An accompaniment system based on the automatic alignment of lyrics and chords to audio[C]//Late-breaking session at the 10th International Conference on Music Information Retrieval. 2010.</p>
+</body>
+</html>
 
-  </section>
-  
-  <section class="comment">
-  <div class="divider"></div>
-  <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'liangchen2be'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-    </section>
- 
-</article>
-
+            </section>
+            
+            <section class="comment">
+              <div class="divider"></div>
+              <div id="disqus_thread"></div>
+              <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+              var disqus_shortname = 'liangchen2be'; // required: replace example with your forum shortname
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+              </script>
+              <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+              <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+            </section>
+            
+          </article>
         </section>
       </article>
-    </div> 
+    </div>
+    <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript">
+      var containers = document.querySelectorAll('#toc-container');
+      Array.prototype.forEach.call(containers, function(elements, index) {
+          $(elements).appendTo($('nav'));
+      });
+    </script>
   </body>
 </html>
