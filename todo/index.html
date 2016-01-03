@@ -58,12 +58,6 @@ $.getJSON("tasks.json", function(json) {
   function basic_timeline(container) {
 
     var
-      // tasks     = {"A": {"Dates": [new Date("2016/01/01").getTime(), new Date("2016/01/02").getTime(), 1451710800000],
-      //                    "Status": 'done',
-      //                    "Init": "a date"},
-      //              "B": {"Dates": [new Date("2016/01/06").getTime()],
-      //                    "Status": 'running'}
-      //             },
       data      = [],
       timeline  = { show : true, barWidth : .5 },
       markers   = [],
@@ -72,8 +66,6 @@ $.getJSON("tasks.json", function(json) {
       dates     = [],
       colors_   = [];
 
-
-    
     // update labels, dates, colors_
     j = 0;
     for (var label in tasks) {
@@ -171,6 +163,6 @@ $.getJSON("tasks.json", function(json) {
 
 </body>
 <footer>
-  <a href="/" rel="author">Chen Liang</a>&#62;&#62;&#62;&#62;&#62;&#62;&#62;&#62;Built on <a href="http://www.humblesoftware.com/flotr2/">Flotr2 Library</a>
+  <a href="/" rel="author">Chen Liang</a>&#62;&#62;&#62;&#62;&#62;&#62;&#62;&#62;Built on <a href="http://www.humblesoftware.com/flotr2/">Flotr2 Library</a>&#62;&#62;&#62;&#62;&#62;&#62;&#62;&#62;<a href="/cn/todo-notes">Building Notes</a>
 </footer>
 </html>
