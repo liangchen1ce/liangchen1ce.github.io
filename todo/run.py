@@ -35,10 +35,11 @@ for line in diffLog.splitlines()[5:]:
 logged = dict()
 for task in added:
     if task:  # if task is not an empty line
-        if added[task]:
-            logged[task] = added[task][-1]
-        else:
-            logged[task] = ''
+        logged[task] = added[task]
+        # if added[task]:
+        #     logged[task] = added[task][-1]
+        # else:
+        #     logged[task] = ''
 
 print "=======Tasks Operations======="
 print logged
@@ -51,16 +52,20 @@ else:
         tasks = json.load(f)
 for task in logged:
     if task not in tasks:
-        tasks[task] = {'Dates': [], 'Status': 'empty', 'Init': dateModified}
-    if logged[task] == 'd':
+        tasks[task] = {'Dates': [], 'Status': 'empty', 'Init': dateModified,
+                       'Tag': 'work + study'}
+        if "#life" in logged[task]:
+            tasks[task]['Tag'] = 'life'
+    opt = logged[task].split('#')[0].strip()
+    if opt.endswith('d'):
         tasks[task]['Dates'].append(dateModified)
         tasks[task]['Dates'] = list(set(tasks[task]['Dates']))
         tasks[task]['Status'] = 'done'
-    elif logged[task] == '+':
+    elif opt.endswith('+'):
         tasks[task]['Dates'].append(dateModified)
         tasks[task]['Dates'] = list(set(tasks[task]['Dates']))
         tasks[task]['Status'] = 'running'
-    elif logged[task] == '-':
+    elif opt.endswith('-'):
         tasks[task]['Dates'].append(dateModified)
         tasks[task]['Dates'] = list(set(tasks[task]['Dates']))
         tasks[task]['Status'] = 'stopped'

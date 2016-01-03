@@ -61,23 +61,32 @@ $.getJSON("tasks.json", function(json) {
       data      = [],
       timeline  = { show : true, barWidth : .5 },
       markers   = [],
-      i, j, graph, point, options, o,
+      i, index_work, index_life, index, graph, point, options, o,
       labels    = [],
       dates     = [],
       colors_   = [];
 
     // update labels, dates, colors_
-    j = 0;
+    index_work = 0; index_life = -1;
     for (var label in tasks) {
       value = tasks[label];
+      // update visualization depth
+      if (value['Tag'] == 'life') {
+        index = index_life;
+        index_life = index_life - 1;
+      } else {
+        index = index_work;
+        index_work = index_work + 1;
+      }
+
       labels.push(label);
       if (value['Status'] == 'empty') {
-        dates.push([[value['Init'], j, 0]]);
+        dates.push([[value['Init'], index, 0]]);
         colors_.push('yellow');
       } else {
         var temp = [];
         value['Dates'].map(function(item) {
-          temp.push([item, j, 1000 * 60 * 60 * 24]);
+          temp.push([item, index, 1000 * 60 * 60 * 24]);
         });
         dates.push(temp);
         if (value['Status'] == 'done') {
@@ -88,8 +97,6 @@ $.getJSON("tasks.json", function(json) {
           colors_.push('yellow');
         }
       }
-      
-      j = j + 1;
     }
 
     // Timeline
@@ -116,6 +123,19 @@ $.getJSON("tasks.json", function(json) {
       }
     });
     
+    // Horizonal Line
+    var horiz = [];
+    Flotr._.each(markers, function(d) {
+      horiz.push([d[0], -0.5]);
+    });
+    Flotr._.each(dates, function(d) {
+      var temp1 = d[d.length - 1][0];
+      var temp2 = d[d.length - 1][2];
+      horiz.push([temp1 + temp2, -0.5]);
+    });
+
+    data.push({ data : horiz, shadowSize : 0, color : '#545454' });
+
     // Draw Graph
     options = {
       colors: colors_, // NEW ADDED
