@@ -14,7 +14,8 @@ diffCmd = "git diff --cached todo.txt"
 process = subprocess.Popen(diffCmd.split(), stdout=subprocess.PIPE)
 diffLog = process.communicate()[0]
 
-commitCmd = "git commit -m 'task updated'"
+commitCmd = "git commit -m 'task_updated'"
+process = subprocess.Popen(commitCmd.split())
 
 added = dict()
 deleted = dict()
