@@ -3,7 +3,10 @@
 <title>Find New Albums!</title>
 
 <style>
-  @import url(http://fonts.googleapis.com/css?family=Oswald);
+  @font-face {
+      font-family: Oswald;
+      src: url('/media/font/Oswald.ttf') format('truetype');
+  }
 
   #album_related {
       font-family: "Oswald", serif;
@@ -15,10 +18,10 @@
 </style>
 <p></p>
 <body>
-<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="/media/js/d3.v3.min.js"></script>
 <script>
 
-d3.json("data/File_for_v.json", function(error, json) {
+d3.json("/media/data/File_for_v.json", function(error, json) {
   if (error) return console.warn(error);
   console.log('Moused out');
 

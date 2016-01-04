@@ -2,7 +2,10 @@
 <meta charset="utf-8">
 <title>V-A space vs. mood tags</title>
 <style>
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+  @font-face {
+      font-family: Oswald;
+      src: url('/media/font/Oswald.ttf') format('truetype');
+  }
 
 #title {
     font-family: "Oswald", serif;
@@ -32,8 +35,8 @@ p {
 <body>
 <div id='dashboard'>
 </div>
-<script src="lib/d3.v3.min.js"></script>
-<script src="lib/jquery-1.11.1.min.js"></script>
+<script src="/media/js/d3.v3.min.js"></script>
+<script src="/media/js/jquery-1.11.1.min.js"></script>
 <script>
 var audio = $("<audio>");
 
@@ -197,7 +200,7 @@ function dashboard(id, fData){
 </script>
 
 <script>
-d3.json("data/echoNestDictionary.json", function(error, data) {
+d3.json("/media/data/echoNestDictionary.json", function(error, data) {
     dashboard('#dashboard', data);
 });
 </script>
