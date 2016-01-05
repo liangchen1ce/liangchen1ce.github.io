@@ -54,30 +54,30 @@
           <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <span id="toc-container">
-    <a href="#tocAnchor-1-1" class="TOC">1 Why exact glottal flow</a>
+    <a href="#Why exact glottal flow" class="TOC">Why exact glottal flow</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-2" class="TOC">2 Method used</a>
+    <a href="#Method used" class="TOC">Method used</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-3" class="TOC">3 Rough result</a>
+    <a href="#Rough result" class="TOC">Rough result</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-4" class="TOC">4 Further evaluation</a>
+    <a href="#Further evaluation" class="TOC">Further evaluation</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-5" class="TOC">5 Conclusion &amp; Future Work</a>
+    <a href="#Conclusion &amp; Future Work" class="TOC">Conclusion &amp; Future Work</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-6" class="TOC">6 Source notification</a>
+    <a href="#Source notification" class="TOC">Source notification</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-7" class="TOC">7 A brief description paper</a>
+    <a href="#A brief description paper" class="TOC">A brief description paper</a>
   </span>
   <span id="toc-container">
-    <a href="#tocAnchor-1-8" class="TOC">8 Source code</a>
+    <a href="#Source code" class="TOC">Source code</a>
   </span>
-  <body><h4 id="tocAnchor-1-1" class="toc_anchor">Why exact glottal flow</h4>
+  <body><h4 id="Why exact glottal flow" class="toc_anchor">Why exact glottal flow</h4>
 <p>You may want to modulate glottal flow parameters to change fundamental frequency or change voice quality.</p>
 
 <blockquote>
@@ -96,12 +96,12 @@
   </ul>
 </blockquote>
 
-<h4 id="tocAnchor-1-2" class="toc_anchor">Method used</h4>
+<h4 id="Method used" class="toc_anchor">Method used</h4>
 <p>Linear prediction fails to get accurate glottal flow in high pitch sound, so I use weight in conventional linear prediction when calculating residuals to change the effect of glottal flow at glottal closure instants (GCI), and apply this weighed linear prediction(WLP) into iterative adaptive inverse filtering(IAIF).</p>
 
 <p>You may want to scan the <strong><a href="/glottal/groupdiscussion.pdf">presentation</a></strong> I made to describe this method to my group members.</p>
 
-<h4 id="tocAnchor-1-3" class="toc_anchor">Rough result</h4>
+<h4 id="Rough result" class="toc_anchor">Rough result</h4>
 
 <ul>
   <li><a href="http://lollichock.tumblr.com/post/68396309267/audio_player_iframe/lollichock/tumblr_mwzs0mksag1snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68396309267%2Ftumblr_mwzs0mksag1snsvcq&amp;color=black&amp;simple=1">Original Song</a></li>
@@ -113,7 +113,7 @@
 
 <p><img src="http://41.media.tumblr.com/ddaf3f68001197d3a47d48321d9b45ba/tumblr_mwzsnzzCHr1snsvcqo1_1280.jpg" alt="rough" title="Fig1. Rough spectrogram comparasion" /></p>
 
-<h4 id="tocAnchor-1-4" class="toc_anchor">Further evaluation</h4>
+<h4 id="Further evaluation" class="toc_anchor">Further evaluation</h4>
 
 <ul>
   <li><strong><a href="http://lollichock.tumblr.com/post/68626975674/audio_player_iframe/lollichock/tumblr_mx3xmcjffz1snsvcq?audio_file=http%3A%2F%2Fwww.tumblr.com%2Faudio_file%2Flollichock%2F68626975674%2Ftumblr_mx3xmcjffz1snsvcq&amp;color=black&amp;simple=1">Synthesized Sound</a></strong> whose fundamental frequency is 400Hz.</li>
@@ -121,18 +121,18 @@
 <img src="http://40.media.tumblr.com/56373f419f06e926064e56e54746e8cc/tumblr_mwzu2hrU9F1snsvcqo1_1280.jpg" alt="distortion" title="Fig2. Formant distortion" /></li>
 </ul>
 
-<h4 id="tocAnchor-1-5" class="toc_anchor">Conclusion &amp; Future Work</h4>
+<h4 id="Conclusion &amp; Future Work" class="toc_anchor">Conclusion &amp; Future Work</h4>
 <p>The rough result indicates that the lower frequency has been improved, while the higher part has been slightly mitigated.Although the results don’t indicate a remarkable improvment of glottal flow, the method is effective to some extent.</p>
 
 <p>The formant distortion figure shows no big difference between two methods, however, the numeric result indicates there exists slight improvement using weighed linear prediction. However, the synthesized sound used in this experiment is not perfectly suitable, which may result in inaccurate conclusion, so I am struggling with other methods to generate suitable sounds.</p>
 
-<h4 id="tocAnchor-1-6" class="toc_anchor">Source notification</h4>
+<h4 id="Source notification" class="toc_anchor">Source notification</h4>
 <p>Examples for different kinds of voice quailty come from Linguistic Voice Quality talk by Patricia Keating and Christina Esposito, http://www.assta.org/</p>
 
-<h4 id="tocAnchor-1-7" class="toc_anchor">A brief description paper</h4>
+<h4 id="A brief description paper" class="toc_anchor">A brief description paper</h4>
 <p><a href="/glottal.pdf">pdf file</a></p>
 
-<h4 id="tocAnchor-1-8" class="toc_anchor">Source code</h4>
+<h4 id="Source code" class="toc_anchor">Source code</h4>
 <p><a href="/m files.rar">M files</a></p>
 </body>
 </html>

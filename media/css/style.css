@@ -71,9 +71,17 @@ a:active {
 text-decoration: underline;
 }
 
+.markdown-body { /* a stupid fix*/
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+  line-height: 1.6;
+  word-wrap: break-word;
+}
+
 ol, ul {
 list-style-position: inside;
-/*margin-left: 1.5em;*/
+margin-left: 1.5em;
 margin-top: 0.2em;
 margin-bottom: 0.2em;
 }
