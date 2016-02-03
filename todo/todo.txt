@@ -5,3 +5,4 @@ read-attending-model +d
 proposal +
 sort-dead-blogs&recode-videos d  #life
 algorithm-lecture ++
+running + #life
