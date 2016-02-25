@@ -115,6 +115,7 @@ MIDI + 与MIDI index对齐的歌词</p>
   <li>每句音视频对齐flag（只对原视频有效）：true则完全对齐，false则使用当前歌手连续视频</li>
   <li>对于每句歌词的视频选择（video，startTime，endTime）：override default原视频，使用新视频从startTime至endTime时段。如果音视频时长不匹配，则对视频进行warp</li>
   <li>对于每个字设定不同的速度比，使用slider。同时可以设定全局速度比。视频行为随之改变。</li>
+  <li>说/唱选择</li>
 </ol>
 
 <h2 id="数据库预处理" class="toc_anchor">数据库预处理</h2>
@@ -158,7 +159,10 @@ MIDI + 与MIDI index对齐的歌词</p>
 <h2 id="视频处理" class="toc_anchor">视频处理</h2>
 <p>根据独立发音在视频中的位置和面板参数，截取视频<br />
 同时可以使用外部视频，外部静态图像<br />
-合成与音轨等长的视频</p>
+合成与音轨等长的视频<br />
+后期特效？maybe？动画模板？<br />
+添加字幕 -&gt; 使用一般字幕组时间轴工具<br />
+使用ffmpeg压制音视频，提供下载</p>
 
 <h2 id="GUI" class="toc_anchor">GUI</h2>
 <p>像一个安装引导程序一样，一步一步走，从而降低操作复杂度，提升界面整洁度</p>
