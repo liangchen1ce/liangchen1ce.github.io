@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="梁琛">
+    <title>Dynamic Time Warping</title>
+    <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+    <link rel="stylesheet" href="/media/css/fontawesome.css">
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+  <div id="main" role="main">
+  <header>
+    
+      <h1>All the world's a stage</h1>
+    
+  </header>
+  <nav>
+    <span><a title="日志" class="" href="/cn/">POSTS</a></span>
+    <span><a title="项目" class="" href="/cn/projects/">PROJECTS</a></span>
+    <span><a title="标签" class="" href="/cn/tags/">TAGS</a></span>
+    <span><a title="简历" class="" href="/cn/vitae">VITAE</a></span>
+    <span><a title="关于" class="" href="/">ABOUT</a></span>
+  </nav>
+  <article class="content">
+    <section class="homepost">
+      <article>
+        
+        <!-- add title -->
+        <section class="title">
+          <h2>Dynamic Time Warping </h2>
+        </section>
+        <section class="meta">
+          <!-- add time -->
+          <span class="time">
+            <time datetime="2016-02-23">2016-02-23</time>
+          </span>
+          <!-- add tags -->
+          
+            <span class="tags">
+              
+                <a href="/tags/DTW" title="DTW">#DTW</a>
+              
+                <a href="/tags/dynamicProgramming" title="dynamicProgramming">#dynamicProgramming</a>
+              
+                <a href="/tags/musicScoreAlignment" title="musicScoreAlignment">#musicScoreAlignment</a>
+              
+                <a href="/tags/paperReading" title="paperReading">#paperReading</a>
+              
+            </span>
+          
+        </section>
+        
+        <section class="post markdown-body">
+          <link rel="stylesheet" href="/media/css/toc.css">
+          <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
+          <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <span id="toc-container">
+    <a href="#1 简介" class="TOC">1 简介</a>
+  </span>
+  <span id="toc-container">
+    <a href="#2 大体思路" class="TOC">2 大体思路</a>
+  </span>
+  <span id="toc-container">
+    <a href="#3 一般解法" class="TOC">3 一般解法</a>
+  </span>
+  <span id="toc-container">
+    <a href="#4 常用约束条件" class="TOC">4 常用约束条件</a>
+  </span>
+  <span id="toc-container">
+    <a href="#5 在离线Score to Audio Alignment中使用" class="TOC">5 在离线Score to Audio Alignment中使用</a>
+  </span>
+  <span id="toc-container">
+    <a href="#6 在在线Score to Audio Alignment中使用" class="TOC">6 在在线Score to Audio Alignment中使用</a>
+  </span>
+  <body><h3 id="1 简介" class="toc_anchor">1 简介</h3>
+
+<p>Dynamic Time Warping(DTW)能够衡量两个时间序列的相似程度。为什么针对时间序列呢？因为有的时候时间序列会加速、减速，需要在时间上进行变形（wrap）。例如不同速度的语音，再比如一个人用不同速度走路。这两个例子里的时间序列分别是采样后的语音信号，走路时录制的加速度传感器序列。我们想对比这两个语音是不是同一个人的，就要在排除速度影响的前提下，对两个语音进行比较。</p>
+
+<h3 id="2 大体思路" class="toc_anchor">2 大体思路</h3>
+
+<p>为了衡量两个序列的相似程度，要考虑序列中各个点的相似程度是什么样子的。比如两个序列都是整数序列，假设相同整数的相似分数是10，即1和1的相似分数是10，2和2的相似分数也是10；不同整数的相似分数是0。那么，</p>
+
+<blockquote>
+  <p>序列A: 1 2 3 4 5<br />
+序列B: 1 2 3 4 5</p>
+</blockquote>
+
+<p>两个序列的相似程度就是50。</p>
+
+<p>假设有序列A和序列B需要被DTW，A有m个点，B有n个点。想象一个矩阵S[core]，S[i][j]是序列A中第i个值和序列B中第j个值的相似分数。矩阵的左下角是两个序列的开始位置，右上角是两个序列的结束位置。</p>
+
+<p>这个矩阵的只有三种移动方法是：<br />
+1. 从S[i][j]向上方移动到S[i][j+1]，代表A中的i既对应了B中的第j个元素，也对应了B中的第j+1个元素。即在此处，A比B快。<br />
+2. 从S[i][j]向右方移动到S[i+1][j]，代表B中的j既对应了A中的第i个元素，也对应了A中的第i+1个元素。即在此处，A比B慢。<br />
+3. 从S[i][j]向上方移动到S[i+1][j+1]，代表A中的i对应了B中的第j个元素，A的i+1对应了B中的第j+1个元素。即在此处，AB同速。</p>
+
+<p>目标就是找到从开始位置到结束位置找到相似分数最高的路径。</p>
+
+<h3 id="3 一般解法" class="toc_anchor">3 一般解法</h3>
+<p>穷举的话，时间复杂度是O(3^(m<em>n))，因为矩阵中每个节点都有三种选择，一共m</em>n个节点。那么一共会有3<em>3</em>3<em>3</em>…*3个路径。一辈子也算不完。</p>
+
+<p>所以一般用dynamic programming的思路做，用一个新的数据结构记录曾经计算过的值，防止重复计算。这样的时间复杂度是O(m*n)。</p>
+
+<p>这个新的数据结构也是一个同样大小的矩阵。矩阵M每个点都代表了：如果那个最好的路径经过我，那么到我现在为止，这条路径已经累计了多少相似分数。</p>
+
+<p>得到矩阵M的方法是，对每个M[i][j]：<br />
+1. 从S[i][j-1]向上方移动到S[i][j]，对应了M[i][j] = M[i][j-1] + S[i][j]<br />
+2. 从S[i-1][j]向右方移动到S[i][j]，对应了M[i][j] = M[i-1][j] + S[i][j]<br />
+3. 从S[i][j]向上方移动到S[i+1][j+1]，对应了M[i][j] = M[i-1][j-1] + S[i][j]<br />
+可以看到，要得的一个节点，有三种移动到这个节点的方法。选取三种方法中相似分数积累的最高的那个路径，就是目前来说的最优路径。</p>
+
+<p>这样对起点设一个初始值，然后根据上面的公式迭代，就可以得到M了。</p>
+
+<p>M中最大的值，就是所有路径中相似分数最高的路径的终点。</p>
+
+<p>然后就可以用回溯法得到该路径的历史路径了。我个人一般会在计算M时维护一个记录来源的矩阵。</p>
+
+<h3 id="4 常用约束条件" class="toc_anchor">4 常用约束条件</h3>
+
+<h4 id="monotonicity">4.1 单调性Monotonicity</h4>
+
+<p>路径不能往回走</p>
+
+<h4 id="continuity">4.2 连续性Continuity</h4>
+
+<p>路径不能跳帧</p>
+
+<h4 id="section-4">4.3 界限约束</h4>
+
+<p>路径起点一定是两个序列起点，终点一定是两个序列终点</p>
+
+<h4 id="section-5">4.4 窗</h4>
+
+<p>两个序列在各自位置不能差太远: abs(i - j) &lt; window</p>
+
+<p>解决办法：代码里不要计算差太远的值，或者将差太远的S矩阵设为负无穷。</p>
+
+<h4 id="section-6">4.5 倾斜程度</h4>
+
+<p>路径不能太陡峭，以防止一个序列卡住而另一个序列前进飞快</p>
+
+<h3 id="5 在离线Score to Audio Alignment中使用" class="toc_anchor">5 在离线Score to Audio Alignment中使用</h3>
+<blockquote>
+  <p>本部分为<br />
+&gt; Soulez, Ferréol, Xavier Rodet, and Diemo Schwarz. “Improving polyphonic and poly-instrumental music to score alignment.” International Conference on Music Information Retrieval (ISMIR). 2003.</p>
+</blockquote>
+
+<blockquote>
+  <p>的论文总结</p>
+</blockquote>
+
+<blockquote>
+  <p>附：将论文里的score event全部翻译为了音符。其实还有和弦什么的，可以看下图里的63号和66号，就是两个events。</p>
+</blockquote>
+
+<p>Q：为什么不用HMM？<br />
+A：对于pairwise的序列对齐，HMM和DTW是可交换的</p>
+
+<p>T[opic]：四个大步<br />
+A：MIDI score的预处理 -&gt; 音乐信号的预处理 -&gt; 计算本地距离 -&gt;计算最优路径</p>
+
+<p>Q：为什么用DTW？<br />
+A：计算最优路径这步要用DTW，因为它空间需求小。而且不要训练。</p>
+
+<h4 id="section-7">5.1 预处理</h4>
+
+<p>MIDI：<br />
+<img src="../media/img/offline-dtw-1.png" alt="" /></p>
+
+<p>音乐：<br />
+STFT -&gt; 4096点汉明窗，fs=44.1kHz，即93ms。</p>
+
+<p>然后把MIDI score切成和音乐帧数差不多的数量，使矩阵更正方形。</p>
+
+<h4 id="local-distance">5.2 计算本地距离local distance</h4>
+
+<p>分数矩阵ldm，用来储存音乐第m帧和乐谱第n帧的相似分数。</p>
+
+<p>分数由频域得到，主要包含音高、音符转换状态信息。音符模型定义了attack frames用了音高和onset，而sustain frames只用了音高。</p>
+
+<p>Q：为什么大家在音符建模的时候都省略了decay frames？decay frames在实验中是被忽略了还是被算作sustain frames？</p>
+
+<h5 id="sustain-model">5.2.1 Sustain Model</h5>
+
+<p>Q：特征<br />
+A：只用了pitch。因为pitch tracking算法不怎么可靠，尤其是在polyphonic很容易出错，所以此处用了一个Peak Structure Match算法。</p>
+
+<p>Q：Peak Structure Match算法<br />
+A：计算了一个本地的Peak Structure Distance(PSD)值。本地PSD是滤波后能量比总能量。滤波器使用的是谐波带通滤波器。谐波是根据预期的音高得到的。</p>
+
+<pre><code>subQ：此处的harmonic band pass filter的harmonics是怎么选的？有几个频带？只包括基频吗？
+subA: 用前六个谐波。滤波器带宽十分之一半音。tolerance是四分之三半音。
+ 	subsubQ：tolerance指什么？
+</code></pre>
+
+<p>Q：Peak Structure Match算法的polyphonic问题<br />
+A:这个算法在monophonic超有用。但polyphonic里一些超大声的乐器把短小音轻的音符都盖住了。把能量放在对数度量上会有用。</p>
+
+<p>Q：Peak Structure Match算法的缺点<br />
+A:<br />
+1. 在polyphonic中，和弦的几个音频的谐波能覆盖很大一部分频谱，所以滤波器一定得精准。<br />
+2. 窄带滤波器对固定音高乐器（钢琴）很有用，然而对弦乐和歌声就惨了。因为唱歌的时候颤音差半个音都正常好嘛！解决方法就是对每个帧调滤波器参数。。。</p>
+
+<p>QQQ：我有点方了。不是分数越低说明越相似吗？为什么滤波之后的能量是最终得分？能量难道不是越相似越大？</p>
+
+<h5 id="attack-model">5.2.2 Attack Model</h5>
+
+<p>Q：为什么要加Attack Model？<br />
+A：只用sustain model的结果都不好。<br />
+因为<br />
+1. 上一个音符余音未袅<br />
+2. attack的能量会扩散到整个频域。只用sustain model的PSD作为相似分数的依据，就会令attack帧的PSD对各个乐谱帧都很相似。所以已经attack的这个note的发现必然比真正的onset晚。大概晚即百分之一秒。<br />
+3. 在和弦A换到和弦B时，可能只有一个音符是变了的。这个小变化可能不足以用来发现新音符。</p>
+
+<p>Q：怎么实现？<br />
+A:把乐谱里面某些note的最开始几个帧作为attack帧，在计算这几个帧和演奏频谱的相似性是，不使用PSD作为分数，而改用attack distance（AD）。公式大概就是能量和上一帧变化的和之类的。<br />
+<img src="../media/img/offline-dtw-2.png" alt="" /></p>
+
+<h5 id="silence-model">5.2.3 Silence Model</h5>
+
+<p>Q：建模对象？<br />
+A:只建模那些时长大于100ms的休止符。更短的休止符被上一个音符合并了。</p>
+
+<p>Q：乐谱上怎么知道长度大不大于100ms？速度按乐谱速度算的吗？</p>
+
+<p>模型：<br />
+<img src="../media/img/offline-dtw-3.png" alt="" /></p>
+
+<h4 id="dtw">5.3 DTW</h4>
+
+<h5 id="local-constraintsadm">5.3.1 Local Constraints计算相似分数和的方式，暨如何得到adm矩阵</h5>
+
+<p><img src="../media/img/offline-dtw-I-fig.png" alt="" /><br />
+<img src="../media/img/offline-dtw-I-eq.png" alt="" /><br />
+Type I 可以横着走或者竖着走。即可以有多余的或者落下的音符。这在polyphonic里表现的不好。</p>
+
+<p><img src="../media/img/offline-dtw-III-fig.png" alt="" /><br />
+<img src="../media/img/offline-dtw-III-eq.png" alt="" /></p>
+
+<p><img src="../media/img/offline-dtw-V-fig.png" alt="" /><br />
+<img src="../media/img/offline-dtw-V-eq.png" alt="" /></p>
+
+<p>对Type I和V, [wv wh wd] = [1 1 2]<br />
+对Type III， [wv wh wd] = [3 3 2]<br />
+这几个数都是常用权重，还蛮好用的。这个实验里使用了V，但是III也没什么问题。</p>
+
+<h5 id="section-8">5.3.2 路径的剪枝</h5>
+
+<p>Q：为什么要剪？<br />
+A:对一个三分钟长的音频来说，如果帧长5.8ms，那就一共有36000帧。那算ldm矩阵和adm矩阵就需要36000^2 = 1.3 × 10^9的大小。大概要2.5GB。</p>
+
+<p>Q：为什么是36000帧？3×60×1000／5.8不是等于31k吗？</p>
+
+<p>Q：怎么剪？<br />
+A:DTW的adm计算呢，是一行一行来的。就是按照音频帧，一帧一帧来的。设当前帧数为m。在当前帧，只有结果小于一个阈值的路径会被保留，其他的都剪掉了。阈值的算法是动态的，是上一帧adm的最小值。即<br />
+<img src="../media/img/offline-dtw-4.png" alt="" /></p>
+
+<p>然而呢，在当前选择路径两旁的路径不会被剪，从而防止误剪。一般这个宽度设为400帧。</p>
+
+<h5 id="section-9">5.3.3 快捷径</h5>
+
+<p>大部分应用不要求音符内部的对齐，只需要知道音符的开始和结束就好了。所以就有一种快捷径，只储存每个表演帧和某个音符的对应关系。As the local constrint types III or V need computation with a depth of 3 or 4 frames respectively, only 2 or 3 frames per performance frame are stored for each score event reducing memory requirements by about 95%.</p>
+
+<p>Q: 上方英文看不懂</p>
+
+<h4 id="section-10">5.4 结果</h4>
+
+<p>Q：参数<br />
+A:hop size 5.8ms，一般是256个点。<br />
+这个选取是对精确度和计算时间进行平衡。算短音频时，可以适当减少hop size，从而增大精确度。有的时候可以增大hop size，从而快速得到一个大致结果。</p>
+
+<p>Q：即使减小hop size能增大时域分辨率，可频域分辨率下降了啊，这样对算PSD好嘛？</p>
+
+<p>Q：评价方法<br />
+A:手动ground truth不好搞，只用了一个小数据集来衡量。<br />
+还用结果生成了MIDI，又用MIDI合成了音频，将音频和原表演同时播放，得到了一个总体上的估计。</p>
+
+<p>Q：局限<br />
+A:<br />
+1. 很短的音符（4个帧以下）很难检测，而且会影响周边音符的成绩。所以就把乐谱里很短的音符和下一个音符合并成和弦了。<br />
+2. 空间还是太大，目前只能处理六分钟以下的音频和4000音符一下的乐谱。<br />
+3. 不能用在打击乐上。</p>
+
+<p>Q:鲁棒性<br />
+A:故意删掉了乐谱里的52歌音符，对全局的对齐没什么大影响。</p>
+
+<p>Q:结果<br />
+A：用了三个钢琴家的几段爵士钢琴的即兴演奏，声音和MIDI都被录了下来。有个曲子非常快，大约70ms就有新的attack，还有的非常慢，有好多trills和很道德动态范围。</p>
+
+<p>ends很难得到，因为会有回声。所以我们只测量了onsets。“对”是指结果中的表演onsets时间离正确对应的乐谱音符最近。这样得到的结果的错误率是9.7%。一共有9024个onset被检测到了，有65%的错误是在短语80ms的音符上的。乐谱onset和结果的标准差是23.8ms。</p>
+
+<p>Q:这个测试数据怎么能让演奏和乐谱完全对应呢？正常的看谱子演奏谁会完全和谱子时间对应啊。</p>
+
+<p>I[ssue]:这个论文中用到的音符时间，用了真正的时间（秒、毫秒）。对于其他论文来说，乐谱是客观存在的，而不是通过MIDI录制的。所以一般来说乐谱中的时间只能是乐谱时间（几个节拍之类的）。</p>
+
+<p>Q：对参数的评论<br />
+hop size是5.8ms，窗长93ms。窗的中心是帧的位置。然而这个可以改进成用窗的能量重力中心。</p>
+
+<h3 id="6 在在线Score to Audio Alignment中使用" class="toc_anchor">6 在在线Score to Audio Alignment中使用</h3>
+<blockquote>
+  <p>本部分为<br />
+&gt; MIREX</p>
+</blockquote>
+
+<blockquote>
+  <p>的论文总结</p>
+</blockquote>
+</body>
+</html>
+
+        </section>
+        <section class="comment">
+          <div class="divider"></div>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'liangchen2be'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+      </article>
+    </section>
+  </article>
+</div>
+<script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
+</body>
+</html>
