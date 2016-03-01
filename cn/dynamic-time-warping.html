@@ -306,12 +306,50 @@ hop size是5.8ms，窗长93ms。窗的中心是帧的位置。然而这个可以
 <h3 id="6 在在线Score to Audio Alignment中使用" class="toc_anchor">6 在在线Score to Audio Alignment中使用</h3>
 <blockquote>
   <p>本部分为<br />
-&gt; MIREX</p>
+&gt; Arzt, Andreas, Gerhard Widmer, and Simon Dixon. “Automatic Page Turning for Musicians via Real-Time Machine Listening.” ECAI. 2008.</p>
 </blockquote>
 
 <blockquote>
   <p>的论文总结</p>
 </blockquote>
+
+<p>Q:关键词<br />
+A:online DTW，tempo model, audio to audio alignment，no training</p>
+
+<p>Q:大体步骤<br />
+A:MIDI合成audio，同时得到online audio-to-audio matcher和基于前几帧alignment result的tempo model，得到current score position。</p>
+
+<h4 id="section-11">6.1 数据呈现</h4>
+<p>把两个音频流切成46ms的window size和20ms的hop size，频域有84个frequency bins，在370Hz以下线性分布，以上指数分布，with semitone spacing。<br />
+为了强调note onsets，只有the increase in energy in each bin relative to the previous frame is stored.</p>
+
+<p>Q:semitone spacing指线性部分还是指数部分？</p>
+
+<p>Q:不了解the increase in energy in each bin relative to the previous frame is stored是怎么操作的。不store的部分怎么处理？</p>
+
+<h4 id="online-dtw">6.2 online DTW</h4>
+<p>使用了<a href="http://www.ijcai.org/Proceedings/05/Papers/post-0005.pdf">Dixon的online DTW</a>算法。<br />
+来了一个新的列的feature，只计算当前列上下一段距离的similarity score，其他的设为INF，这样计算augmented score时（计算路径时），就只能在限定范围计算了。</p>
+
+<h4 id="section-12">6.3 前向-后向策略</h4>
+<p>Q:使用这个策略的目的<br />
+A:改进Dixon的方法，使其更具精确性和鲁棒性。</p>
+
+<p>Q:具体内容<br />
+A:在当前音频帧（矩阵当前列）计算完后，再计算一个光滑的回溯路径，从当前位置（i，j）开始。回溯score position100步，得到一个更像最优路径的路径，然后前向计算，如果能到原（i, j），那就太好了。如果到不了，就blabla做一些我看不懂的事。。。</p>
+
+<p>Q:为什么重新向前计算能够到一个不同的地方呢？</p>
+
+<h4 id="a-simple-tempo-model">6.4 A Simple Tempo Model</h4>
+<p>Model：<br />
+计算回溯路径，得到最近20个检测到的onsets，每个onset的本地速度是这样计算的：放一个中心为这个onset的3秒window，计算这个window的回溯路径斜率。这样得到20个local tempi，用这几个tempo来估计当前local tempo。<br />
+<img src="../media/img/offline-dtw-5.png" alt="" /></p>
+
+<p>在ODTW中使用tempo model：<br />
+relative tempo用来改变score represention的长短 -&gt; 可以用来拉伸或删除score中的events。</p>
+
+<p>具体操作:<br />
+当前tempo为t（斜率），如果t&gt;1，说明performance太快了，就有(t-1)/t的几率要在下一帧删除一行。如果t&lt;1,就有1-t的几率在下一帧增加一行。不能连续三次做这种操作。</p>
 </body>
 </html>
 

@@ -135,7 +135,9 @@ MIDI + 与MIDI index对齐的歌词</p>
 方案一：使用现有NLP forced alignment工具，如<a href="http://cmusphinx.sourceforge.net/2010/09/sphinx4-1-0-beta-4-released-2/">CMUSphinx</a>或<a href="http://fave.ling.upenn.edu/usingFAAValign.html">FAVEalign</a>或<a href="https://speechmatics.com/">speechmatics</a>或<a href="https://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/speech-to-text/using.shtml#timestamps">IBM</a><br />
 方案二：使用现有NLP语音识别工具，要求返回每帧的识别结果，或者某一连续识别结果的开始结束时间。然后将此结果与transcript做string matching，或HMM的matching，或DTW。<br />
 问题：使用HTK或CMUSphinx，需要重新训练中文语音模型。<br />
-解决：寻找中文语料库进行训练，或寻找训练好的模型，或找中文NLP工具，比如科大讯飞</p>
+解决：寻找中文语料库进行训练，或寻找训练好的模型，或找中文NLP工具，比如科大讯飞<br />
+方案三！！！<br />
+刚刚发现了一个新的研究领域，叫做score predictive model, 用来refine phoneme boundary的！可以看看这个论文<a href="https://www.researchgate.net/profile/Cheng_Yuan_Lin/publication/3457924_Automatic_Phonetic_Segmentation_by_Score_Predictive_Model_for_the_Corpora_of_Mandarin_Singing_Voices/links/02e7e51b912ef71303000000.pdf">台大做的基于中文语料的</a>，简直完美切合！就是为了”corpus-based singing voice synthesis”!!!</p>
 
 <p>最终形态：<br />
 分为发音库：每个发音使用ffmpeg分割，可以通过歌手、模糊拼音、元音进行索引。<br />
