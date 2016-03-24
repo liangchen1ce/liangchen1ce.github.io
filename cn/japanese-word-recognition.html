@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="梁琛">
+    <title>一个包含随机模型的DTW</title>
+    <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+    <link rel="stylesheet" href="/media/css/fontawesome.css">
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+  <div id="main" role="main">
+  <header>
+    
+      <h1>All the world's a stage</h1>
+    
+  </header>
+  <nav>
+    <span><a title="日志" class="" href="/cn/">POSTS</a></span>
+    <span><a title="项目" class="" href="/cn/projects/">PROJECTS</a></span>
+    <span><a title="标签" class="" href="/cn/tags/">TAGS</a></span>
+    <span><a title="简历" class="" href="/cn/vitae">VITAE</a></span>
+    <span><a title="关于" class="" href="/">ABOUT</a></span>
+  </nav>
+  <article class="content">
+    <section class="homepost">
+      <article>
+        
+        <!-- add title -->
+        <section class="title">
+          <h2>一个包含随机模型的DTW </h2>
+        </section>
+        <section class="meta">
+          <!-- add time -->
+          <span class="time">
+            <time datetime="2016-03-24">2016-03-24</time>
+          </span>
+          <!-- add tags -->
+          
+            <span class="tags">
+              
+                <a href="/tags/DTW" title="DTW">#DTW</a>
+              
+                <a href="/tags/HMM" title="HMM">#HMM</a>
+              
+                <a href="/tags/paperReading" title="paperReading">#paperReading</a>
+              
+            </span>
+          
+        </section>
+        
+        <section class="post markdown-body">
+          <link rel="stylesheet" href="/media/css/toc.css">
+          <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
+          <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <span id="toc-container">
+    <a href="#1 来源" class="TOC">1 来源</a>
+  </span>
+  <span id="toc-container">
+    <a href="#目的" class="TOC">目的</a>
+  </span>
+  <span id="toc-container">
+    <a href="#思路" class="TOC">思路</a>
+  </span>
+  <span id="toc-container">
+    <a href="#灵感" class="TOC">灵感</a>
+  </span>
+  <span id="toc-container">
+    <a href="#成品" class="TOC">成品</a>
+  </span>
+  <span id="toc-container">
+    <a href="#参数" class="TOC">参数</a>
+  </span>
+  <span id="toc-container">
+    <a href="#实验" class="TOC">实验</a>
+  </span>
+  <body><h2 id="1 来源" class="toc_anchor">1 来源</h2>
+
+<p><a href="http://www.slp.ics.tut.ac.jp/shiryou/number-2/E1988-16.pdf">Nakagawa, Seiichi, and Hirobumi Nakanishi. “Speaker-independent English consonant and Japanese word recognition by a stochastic dynamic time warping method.” IETE Journal of Research 34.1 (1988): 87-95.</a></p>
+
+<h2 id="目的" class="toc_anchor">目的</h2>
+
+<p>日语单词识别</p>
+
+<h2 id="思路" class="toc_anchor">思路</h2>
+
+<p>DTW。但不是standard DTW。希望引入一些随机模型。</p>
+
+<h2 id="灵感" class="toc_anchor">灵感</h2>
+
+<p>HMM</p>
+
+<h2 id="成品" class="toc_anchor">成品</h2>
+
+<p>在对比了HMM Viterbi Decoding的公式后，发现DTW的cumulative distance公式可以近似仿写成这个形式。于是模仿着引入了output distribution和transfer probability。见文章中“General equation of stochastic dynamic time warping method” section。</p>
+
+<h2 id="参数" class="toc_anchor">参数</h2>
+
+<ol>
+  <li>output distribution -&gt; multivariant Gaussian</li>
+  <li>transfer probability -&gt; count based on averaged template</li>
+</ol>
+
+<h2 id="实验" class="toc_anchor">实验</h2>
+
+<h3 id="feature">feature</h3>
+
+<p>LPC + energy</p>
+
+<h3 id="section-7">实验一：英语辅音识别</h3>
+<p>23男性，每人7-10句，每局平均8个词，2.6秒<br />
+1. Training -&gt; 16人<br />
+2. Testing -&gt; 7人</p>
+
+<h3 id="section-8">实验二：日语单词识别</h3>
+
+<ol>
+  <li>Training -&gt; 30男性，共216词</li>
+  <li>Testing -&gt; 10男性，共200词<br />
+共15分钟左右数据</li>
+</ol>
+</body>
+</html>
+
+        </section>
+        <section class="comment">
+          <div class="divider"></div>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'liangchen2be'; // required: replace example with your forum shortname
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+          <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </section>
+      </article>
+    </section>
+  </article>
+</div>
+<script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
+</body>
+</html>
