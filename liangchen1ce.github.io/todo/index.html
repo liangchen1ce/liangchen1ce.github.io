@@ -1,0 +1,189 @@
+<html>
+  <head>
+    <style type="text/css">
+      h1 {
+
+        font-weight: 600;
+        color: #2c3e50;
+        margin-left: 18.4%;
+      }
+      body {
+        font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 15px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #34495e;
+        /*margin-left: 200px;*/
+        word-spacing: 0.05em;
+      }
+      a {
+        text-decoration: underline;
+        color: #34495e;
+      }
+      blockquote {
+        margin: 2em 0;
+        padding-left: 20px;
+        border-left: 4px solid green;
+        margin-left: 18.4%;
+      }
+      #container {
+        width : 800px;
+        height: 384px;
+        margin: 8px auto;
+      }
+      footer {
+        text-rendering: optimizeLegibility;
+        margin-top: 100px;
+        margin-left: 18.4%;
+      }
+    </style>
+  </head>
+<body>
+<div>
+  <h1>This is a simple task renderer.</h1>
+  <blockquote>
+    <p>Tasks based on local 'todo.txt' file.</p>
+  </blockquote>
+</div>
+<div id="container">
+</div>
+<script type="text/javascript" src="../media/js/flotr2.min.js"></script>
+<script type="text/javascript" src="../media/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+var tasks;
+$.getJSON("tasks.json", function(json) {
+  console.log(json);
+  tasks = json; // this will show the info it in firebug console
+
+  function basic_timeline(container) {
+
+    var
+      data      = [],
+      timeline  = { show : true, barWidth : .5 },
+      markers   = [],
+      i, index_work, index_life, index, graph, point, options, o,
+      labels    = [],
+      dates     = [],
+      colors_   = [];
+
+    // update labels, dates, colors_
+    index_work = 0; index_life = -1;
+    for (var label in tasks) {
+      value = tasks[label];
+      // update visualization depth
+      if (value['Tag'] == 'life') {
+        index = index_life;
+        index_life = index_life - 1;
+      } else {
+        index = index_work;
+        index_work = index_work + 1;
+      }
+
+      labels.push(label);
+      if (value['Status'] == 'empty') {
+        dates.push([[value['Init'], index, 0]]);
+        colors_.push('yellow');
+      } else {
+        var temp = [];
+        value['Dates'].map(function(item) {
+          temp.push([item, index, 1000 * 60 * 60 * 24]);
+        });
+        dates.push(temp);
+        if (value['Status'] == 'done') {
+          colors_.push('green');
+        } else if (value['Status'] == 'stopped') {
+          colors_.push('red');
+        } else if (value['Status'] == 'running') {
+          colors_.push('yellow');
+        }
+      }
+    }
+
+    // Timeline
+    Flotr._.each(dates, function (d) {
+      data.push({
+        data : d,
+        timeline : Flotr._.clone(timeline)
+      });
+    });
+
+    // Markers
+    Flotr._.each(dates, function (d) {
+      point = d[0];
+      markers.push([point[0], point[1]]);
+    });
+    
+    data.push({
+      data: markers,
+      markers: {
+        show: true,
+        position: 'rm',
+        fontSize: 11,
+        color: '#2c3e50',
+        labelFormatter : function (o) { return labels[o.index]; }
+      }
+    });
+    
+    // Horizonal Line
+    var horiz = [];
+    Flotr._.each(markers, function(d) {
+      horiz.push([d[0], -0.5]);
+    });
+    Flotr._.each(dates, function(d) {
+      var temp1 = d[d.length - 1][0];
+      var temp2 = d[d.length - 1][2];
+      horiz.push([temp1 + temp2, -0.5]);
+    });
+
+    data.push({ data : horiz, shadowSize : 0, color : '#545454' });
+
+    // Draw Graph
+    options = {
+      colors: colors_, // NEW ADDED
+      xaxis: {
+        mode: 'time',
+        timeMode: 'local'
+        // noTicks: 3
+      }, 
+      selection: {
+        mode : 'x'
+      },
+      yaxis: {
+        showLabels : false
+      },
+      grid: {
+        horizontalLines : false
+      }
+    };
+    
+    function drawGraph (opts) {
+
+      // Clone the options, so the 'options' variable always keeps intact.
+      o = Flotr._.extend(Flotr._.clone(options), opts || {});
+
+      // Return a new graph.
+      return Flotr.draw(container, data, o);
+    }
+
+    graph = drawGraph();  
+    
+    Flotr.EventAdapter.observe(container, 'flotr:select', function(area){
+      // Draw selected area
+      graph = drawGraph({
+        xaxis : { min : area.x1, max : area.x2, mode : 'time', labelsAngle : 45 }
+      });
+    });
+          
+    // When graph is clicked, draw the graph with default area.
+    Flotr.EventAdapter.observe(container, 'flotr:click', function () { graph = drawGraph(); });
+  };
+  basic_timeline(document.getElementById("container"));
+});
+
+</script>
+
+</body>
+<footer>
+  <a href="/" rel="author">Chen Liang</a>&#62;&#62;&#62;&#62;&#62;&#62;&#62;&#62;Built on <a href="http://www.humblesoftware.com/flotr2/">Flotr2 Library</a>&#62;&#62;&#62;&#62;&#62;&#62;&#62;&#62;<a href="/cn/todo-notes">Building Notes</a>
+</footer>
+</html>
