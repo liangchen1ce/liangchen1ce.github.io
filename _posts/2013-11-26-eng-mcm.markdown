@@ -1,0 +1,28 @@
+---
+layout: posteng
+categories: projects eng
+another-category: Mathematics
+linka: mcm
+permalink: /eng/projects/mcm
+title: Mathematical Contest in Modeling 2013
+tocTopTag: h4
+noToc: false
+---
+
+#### Background
+In this problem, we are asked to improve the efficiency of baking process,
+namely, the maximum sum area of cakes (in a certain thickness) once can be
+placed in an oven and the extent to which the cakes are evenly baked, through
+the adjustment of the shape of pans. Therefore, it involves both thermodynamics
+theory and two-dimensional packing problem.
+
+#### Structure
+Our paper is organised as follows. First, an ideal thermal model is developed
+to simulate the heat distribution of pans in different shapes. Next, under the
+requirement of maximizing the number of pans, a group of overlapped circles
+is used to approximately calculate the number of pans that can be placed into
+an oven. Finally, according to the heat distribution computed by the first model,
+the pan with most even distribution is selected. 
+
+#### Paper
+[QuickWay to Choose the Type of Pans](/mcm.pdf)
