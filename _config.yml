@@ -1,7 +1,0 @@
-name: liangchen1ce.github.io
-# markdown: redcarpet
-highlighter: true
-permalink: /:year/:month/:title/
-kramdown:
-  input: GFM
-# tocTopTag: h2
