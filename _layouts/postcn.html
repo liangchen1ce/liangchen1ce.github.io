@@ -1,0 +1,56 @@
+---
+layout: fake_container
+---
+<div id="main" role="main">
+  <header>
+    {% if page.quote %}
+      <h1>{{ page.quote }}</h1>
+    {% else %}
+      <h1>All the world's a stage</h1>
+    {% endif %}
+  </header>
+  <nav>
+    <span><a title="日志" class="" href="/cn/">POSTS</a></span>
+    <span><a title="项目" class="" href="/cn/projects/">PROJECTS</a></span>
+    <span><a title="标签" class="" href="/cn/tags/">TAGS</a></span>
+    <span><a title="简历" class="" href="/cn/vitae">VITAE</a></span>
+    <span><a title="关于" class="" href="/">ABOUT</a></span>
+  </nav>
+  <article class="content">
+    <section class="homepost">
+      <article>
+        <section class="title">
+          <h2>{{ page.title }} </h2>
+        </section>
+        <section class="meta">
+          <span class="time">
+            <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
+          </span>
+          {% if page.tags %}
+            <span class="tags">
+              {% for tag in page.tags %}
+                <a href="/tags/{{ tag }}" title="{{ tag }}">#{{ tag }}</a>
+              {% endfor %}
+            </span>
+          {% endif %}
+        </section>
+        <section class="post markdown-body">
+          <link rel="stylesheet" href="/media/css/toc.css">
+          {{ content | toc_generate }}
+
+
+
+          <p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+
+        </section>
+      </article>
+    </section>
+  </article>
+</div>
+<script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
