@@ -1,0 +1,154 @@
+abeng	Jamaican bugle made from cow horn
+aerophone	musical instrument like a concertina
+angelot	musical instrument resembling a lute
+arpeggione	stringed instrument like the cello
+bandore	bass cittern
+banjolin	combination of banjo and mandolin
+banjulele	combination of banjo and ukulele
+barbiton	lute or lyre with many strings
+bellonion	mechanical instrument combining trumpets and drums
+bombard	instrument like the bassoon
+bombardon	large keyless bass trumpet
+buccina	Roman curved trumpet
+carillon	set of bells of different sizes
+cavaquinho	four-stringed Brazilian ukulele
+celesta	keyboard instrument with hammers that strike on steel plates
+cervelat	short bassoon-like instrument
+chitarrone	long double-necked lute
+cithara	ancient Greek musical instrument like a lyre
+clavichord	old keyboard stringed instrument
+clavicylinder	square keyboard instrument whose sound produced from a glass cylinder
+clavicymbal	old name for a harpsichord
+claviole	keyed string instrument
+concertina	accordion-like instrument with two sets of keys
+crwth	Welsh six-stringed instrument played with a bow
+curtal	kind of archaic bassoon
+diaulos	ancient Greek double flute
+dichord	musical instrument with two strings
+didgeridoo	Australian aboriginal instrument consisting of a long wood or bamboo tube
+dilruba	Indian stringed instrument like a small sitar
+dyphone	double lute with fifty strings
+esraj	Indian stringed instrument with sympathetic strings, played with a bow
+euphonon	keyboard instrument resembling the organ in sound
+flageolet	small flute or recorder with two thumb holes
+flautino	small flute or piccolo
+gaita	Spanish bagpipes
+glockenspiel	small bells or bars struck by hammer or keyed levers
+gorah	bow-and-string instrument of Khoekhoe people
+gue	two-stringed violin from the Shetland Islands
+guiro	serrated gourd scraped with stick to produce music
+gusli	Russian zither
+harmoniphone	keyboard instrument with reeds
+helicon	bass tuba
+humpenscrump	crude musical instrument like a hurdy-gurdy
+idiophone	percussion instrument made of naturally resonant material
+jazzophone	musical instrument like a kazoo with a trumpet bell
+kakaki	West African ceremonial trumpet
+kalimba	African musical instrument made of metal strips along a hollow wooden tube
+kantele	Finnish zither
+kent-bugle	an obsolete keybugle
+keybugle	bugle with keys
+kit	a small pocket violin
+kora	musical instrument similar to a harp
+koto	obnoxious-sounding Japanese stringed instrument
+lagerphone	percussion instrument with bottlecaps loosely nailed to pole
+lautenclavicymbel	lute harpsichord with gut strings
+lituus	long curved trumpet
+lur	ancient Scandinavian trumpet
+lyrichord	kind of obsolete harpsichord
+lyricon	electronic wind instrument like a large obverse flute
+lysarden	old wind instrument like a cornett or serpent
+magadis	ancient bridged stringed instrument
+manzello	variant form of soprano saxophone
+marimbaphone	marimba with steel keys
+melodikon	keyboard instrument that brings tuning forks in contact with rotating cone
+metallophone	instrument like the xylophone but with metal bars
+mirliton	reed pipe
+molimo	wooden trumpet used by Mbuti pygmies
+molo	two or three-stringed lute of West Africa
+monochord	musical instrument having only one string
+nyatiti	eight-stringed lyre used by Luo people
+obeophone	mechanical keyboard instrument used to imitate woodwind instruments
+ocarina	egg-shaped flute-like wind instrument
+ophicleide	keyed bass brass musical instrument
+organistrum	early musical instrument resembling the hurdy-gurdy
+orguinette	mechanical instrument with reeds and bellows, playing music from a paper roll
+orpharion	large lute with six to nine pairs of strings
+oud	wooden Middle Eastern lute
+pandora	musical instrument like a lute
+panharmonicon	mechanical musical instrument operated by a cylinder
+pantaleon	large dulcimer
+phorminx	seven-stringed Greek lyre
+pianette	small upright piano
+pibcorn	old Welsh instrument like a hornpipe
+pipa	Chinese lute
+pluriarc	West African stringed instrument like a zither
+polyphone	many-stringed instrument like a lute
+posaune	archaic trombone
+psaltery	ancient stringed musical instrument
+quena	vertical bamboo flute used in the Andes
+quinticlave	upright brass-wind instrument like a keyed bugle
+quinton	five-stringed tenor viol
+ravanastron	ancient Hindu stringed instrument played with a bow
+rebec	medieval musical instrument like a mandolin or viol
+regal	a small portable organ
+riqq	Middle Eastern tambourine
+sackbut	early wind instrument resembling the trombone
+salpinx	ancient Greek trumpet
+sansa	set of small cymbals played with the thumbs
+sarangi	Indian fiddle
+sarinda	stringed instrument of India played with a bow
+sarod	bowed or plucked South Asian string instrument
+saron	Indonesian instrument with seven bronze bars struck with mallet
+sarrusophone	double-reeded musical instrument resembling the bassoon
+saxhorn	brass instrument like a trumpet
+schryari	old and very loud double-reed wind instrument
+se	twenty-five-stringed Chinese zither
+seraphine	reed keyboard instrument
+serpentcleide	musical instrument like an ophicleide with a wooden body
+shakuhachi	end-blown bamboo Japanese flute
+shawm	double-reeded wind instrument
+shofar	ram's horn trumpet used in Jewish ceremonies
+sistrum	thin oval Egyptian percussion instrument shaken in the hand
+sitar	long-necked Indian plucked string instrument
+sourdine	muted trumpet
+spinet	keyed instrument like the harpsichord
+stritch	straightened alto saxophone
+symphonia	old name for the hurdy-gurdy or other musical instruments
+syrinx	rock-cut tunnel; pan pipes
+tabor	light medieval drum buckled onto the player's chest
+tamburitza	guitar or mandolin of the Balkan region
+terpodion	piano-like instrument whose sound is made from wooden blocks
+theorbo	large double-necked lute
+theremin	electronic instrument with tones created by placing hands near oscillators
+tibia	ancient Roman flute
+timbal	kettle drum
+timbrel	tambourine-like percussion instrument
+tintinnabulum	percussion instrument of many bells in succession
+tonitruone	musical instrument that imitates sound of thunder
+trautonium	electronic musical instrument like a theramin
+trigon	ancient Greek triangular harp
+ukeke	Hawaiian mouth harp with two or three strings
+valiha	bamboo tubular zither used in Madagascar
+vandola	stringed lute-like Spanish instrument
+veena	Indian seven-stringed lyre
+vibraslap	modern percussion instrument with rod and ball
+vielle	four-stringed instrument played with a small wheel
+vihuela	early Spanish guitar
+virginal	small keyed instrument like a harpsichord
+vocalion	small organ whose reeds produce tone like a human voice
+waldhorn	French valveless hunting horn
+xylorimba	combination of xylophone and marimba
+yang-chin	Chinese hammered dulcimer
+zambomba	Spanish percussion instrument
+zampogna	Italian bagpipe
+zanze	African musical instrument like castanets
+zel	form of Oriental cymbal
+zeze	stringed instrument resembling a zither
+zill	finger cymbals used in belly dancing
+zinke	old wind instrument resembling the cornet
+zither	musical instrument with strings laid over horizontal board
+zufolo	small flute used to train songbirds
+zugtrompete	slide trumpet
+zurla	Yugoslavian shawm
+zurna	Turkish bagpipe or shawm
