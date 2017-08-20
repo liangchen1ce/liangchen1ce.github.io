@@ -1,8 +1,0 @@
-// add new line in todo -> commit -> run index.html(get time information from git) -> visualize 
-// '+' -> updated task; '-' -> removed task; 'd' -> finished task.
-todo-webpage +d
-read-attending-model +d
-proposal +
-sort-dead-blogs&recode-videos d  #life
-algorithm-lecture ++
-running ++ #life

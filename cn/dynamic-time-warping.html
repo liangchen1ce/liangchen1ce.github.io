@@ -31,17 +31,13 @@
   <article class="content">
     <section class="homepost">
       <article>
-        
-        <!-- add title -->
         <section class="title">
           <h2>Dynamic Time Warping </h2>
         </section>
         <section class="meta">
-          <!-- add time -->
           <span class="time">
             <time datetime="2016-02-23">2016-02-23</time>
           </span>
-          <!-- add tags -->
           
             <span class="tags">
               
@@ -56,10 +52,8 @@
             </span>
           
         </section>
-        
         <section class="post markdown-body">
           <link rel="stylesheet" href="/media/css/toc.css">
-          <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
           <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <span id="toc-container">
@@ -365,6 +359,11 @@ relative tempo用来改变score represention的长短 -&gt; 可以用来拉伸�
   </article>
 </div>
 <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
 </body>
 </html>

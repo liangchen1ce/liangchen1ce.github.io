@@ -31,17 +31,13 @@
   <article class="content">
     <section class="homepost">
       <article>
-        
-        <!-- add title -->
         <section class="title">
           <h2>可能有用的论文集锦 </h2>
         </section>
         <section class="meta">
-          <!-- add time -->
           <span class="time">
             <time datetime="2016-03-25">2016-03-25</time>
           </span>
-          <!-- add tags -->
           
             <span class="tags">
               
@@ -50,10 +46,8 @@
             </span>
           
         </section>
-        
         <section class="post markdown-body">
           <link rel="stylesheet" href="/media/css/toc.css">
-          <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
           <h3 id="voice-recognition-algorithms-using-mel-frequency-cepstral-coefficient-mfcc-and-dynamic-time-warping-dtw-techniqueshttparxivorgpdf10034083pdf"><a href="http://arxiv.org/pdf/1003.4083.pdf">Voice recognition algorithms using mel frequency cepstral coefficient (MFCC) and dynamic time warping (DTW) techniques</a></h3>
 
 <p>Tags: DTW, MFCC, Speech Recognition</p>
@@ -101,6 +95,11 @@
   </article>
 </div>
 <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
 </body>
 </html>

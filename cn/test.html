@@ -31,17 +31,13 @@
   <article class="content">
     <section class="homepost">
       <article>
-        
-        <!-- add title -->
         <section class="title">
           <h2>测试 </h2>
         </section>
         <section class="meta">
-          <!-- add time -->
           <span class="time">
             <time datetime="2013-10-21">2013-10-21</time>
           </span>
-          <!-- add tags -->
           
             <span class="tags">
               
@@ -50,10 +46,8 @@
             </span>
           
         </section>
-        
         <section class="post markdown-body">
           <link rel="stylesheet" href="/media/css/toc.css">
-          <!-- <link rel="stylesheet" href="/media/css/github-markdown.css"> -->
           <p>看下成果肿么样！</p>
 
 
@@ -67,6 +61,11 @@
   </article>
 </div>
 <script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
 </body>
 </html>
