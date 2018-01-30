@@ -1,76 +1,96 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="梁琛">
-    <title>One Website A Day!</title>
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
-    <link rel="stylesheet" href="/media/css/style.css">
-    <link rel="stylesheet" href="/media/css/github.css">
-    <link rel="stylesheet" href="/media/css/fontawesome.css">
-    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
-    <script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-    </script>
-  </head>
-  <body>
-    <div id="main" role="main">
-      <header>
-        
-          <h1>All the world's a stage</h1>
-        
-      </header>
-      <nav>
-        <span><a title="POSTS" class="" href="/eng/">POSTS</a></span>
-        <span><a title="PROJECTS" class="" href="/eng/projects/">PROJECTS</a></span>
-        <span><a title="TAGS" class="" href="/eng/tags/">TAGS</a></span>
-        <span><a title="VITAE" class="" href="/eng/vitae">VITAE</a></span>
-        <span><a title="ABOUT" class="" href="/">ABOUT</a></span>
-      </nav>
-      <article class="content">
-        <section class="homepost">
-          <article>
-  <section class="title">
-    <h2>One Website A Day! </h2>
-  </section>
-  <section class="meta">
-    <span class="time">
-      <time datetime="2015-03-16">2015-03-16</time>
-    </span>
-    
-      <span class="tags">
-        
-          <a href="/tags/webpagePerDay" title="webpagePerDay">#webpagePerDay</a>
-        
-      </span>
-    
-  </section>
-  <section class="post markdown-body">
-    <p>不要改permalink…</p>
+<meta charset="utf-8">
+<title>One Website Per Day!</title>
 
-  </section>
-  
-  <section class="comment">
-    <div class="divider"></div>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'liangchen2be'; // required: replace example with your forum shortname
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-  </section>
-  
-</article>
-        </section>
-      </article>
-    </div>
-  </body>
-</html>
+<style>
+  @font-face {
+      font-family: Oswald;
+      src: url('/media/font/Oswald.ttf') format('truetype');
+  }
+
+  #hello {
+      font-family: "Oswald", serif;
+  }
+
+  #myTexts {
+      font-family: Arial, serif;
+  }
+
+  h1, h2, footer {
+    font-family: "Oswald", serif;
+    text-rendering: optimizeLegibility;
+    margin-left: 30px;
+    margin-top: -100px;
+    color: #156B87;
+  }
+
+  a {
+    text-decoration: none;
+    color: #15876a;
+  }
+</style>
+<p></p>
+<body>
+<script src="/media/js/d3.v3.min.js"></script>
+<script>
+
+var w = window,
+    d = document,
+    e = d.documentElement,
+    g = d.getElementsByTagName('body')[0],
+    width = w.innerWidth || e.clientWidth || g.clientWidth,
+    height = w.innerHeight-20;
+
+var color = d3.scale.category20()
+            .domain(d3.range(5)); // 5 is the number of text objects
+
+var X = 30,
+    Y = 100,
+    Padding = height/22;
+
+var myTexts = [
+    {text:"I'm Chen Liang and I'm planning to make a series of webpages.", cluster: 1, x: X, y: Y + Padding},
+    {text:"This idea is inspired by Jennifer Dewalt's '180 websites in 180 days' project.", cluster: 2, x: X, y: Y + Padding * 2},
+    {text:"I'm not going to write webpages consequently, which exactly Jennifer does.", cluster: 3, x: X, y: Y + Padding * 3},
+    {text:"However, my intention is to make fast and dirty webpages, and train myself with different interesting, easy-to-learn web techniques.", cluster: 4, x: X, y: Y + Padding * 4},
+    {text:"So it's very likely that I don't update everyday, even every three days.", cluster: 5, x: X, y: Y + Padding * 5},
+    {text:'This is my very first one. Hope you like it!', cluster: 6, x: X, y: Y + Padding * 6}
+  ];
+
+var svg = d3.select("body").append("svg")
+        .attr("width", 1500)
+        .attr("height", height)
+        .append("g");
+
+svg.append("text")
+    .attr("id", "hello")
+    .attr("x", 30)
+    .attr("y", 80)
+    .style("font-size", "32px")
+    .style("text-anchor", "left")
+    .text("HELLO!");
+
+var i = 0;
+
+svg.selectAll('text.myTexts')
+    .data(myTexts)
+    .enter().append('text')
+    .attr('id', 'myTexts')
+    .attr('x', 30)
+    .attr('y', function(d, i) { return d.y; })
+    .style("font-size", "20px")
+    .text(function(d) { 
+      return d.text; 
+    })
+    .attr('fill', 'white')
+    .on("mouseover", function(d) {
+      d3.select(this).attr('fill', color(i));
+      i += 1;
+    });
+</script>
+
+<footer>
+  <a href="/" rel="author">Chen Liang</a>
+        &#62;&#62;&#62;&#62;&#62;&#62;&#62;&#62;
+  <a href="/websitePerDay/">Back to List</a>
+</footer>
