@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="author" content="梁琛">
+    <title>GBDT - XGBoost - LightGBM</title>
+    <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
+    <link rel="stylesheet" href="/media/css/style.css">
+    <link rel="stylesheet" href="/media/css/github.css">
+    <link rel="stylesheet" href="/media/css/fontawesome.css">
+    <script src="https://use.fontawesome.com/0daa5e8ddf.js"></script>
+    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
+    <script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+    </script>
+  </head>
+  <body>
+  <div id="main" role="main">
+  <header>
+    
+      <h1>All the world's a stage</h1>
+    
+  </header>
+  <nav>
+    <span><a title="日志" class="" href="/cn/">POSTS</a></span>
+    <span><a title="项目" class="" href="/cn/projects/">PROJECTS</a></span>
+    <span><a title="标签" class="" href="/cn/tags/">TAGS</a></span>
+    <span><a title="简历" class="" href="/cn/vitae">VITAE</a></span>
+    <span><a title="关于" class="" href="/">ABOUT</a></span>
+  </nav>
+  <article class="content">
+    <section class="homepost">
+      <article>
+        <section class="title">
+          <h2>GBDT - XGBoost - LightGBM </h2>
+        </section>
+        <section class="meta">
+          <span class="time">
+            <time datetime="2018-01-30">2018-01-30</time>
+          </span>
+          
+            <span class="tags">
+              
+                <a href="/tags/GBDT" title="GBDT">#GBDT</a>
+              
+                <a href="/tags/XGBoost" title="XGBoost">#XGBoost</a>
+              
+                <a href="/tags/LightGBM" title="LightGBM">#LightGBM</a>
+              
+                <a href="/tags/paperReading" title="paperReading">#paperReading</a>
+              
+            </span>
+          
+        </section>
+        <section class="post markdown-body">
+          <link rel="stylesheet" href="/media/css/toc.css">
+          <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <span id="toc-container">
+    <a href="#1 简介" class="TOC">1 简介</a>
+  </span>
+  <span id="toc-container">
+    <a href="#2 GBDT的一般步骤" class="TOC">2 GBDT的一般步骤</a>
+  </span>
+  <span id="toc-container">
+    <a href="#3 XGBoost" class="TOC">3 XGBoost</a>
+  </span>
+  <span id="toc-container">
+    <a href="#4 LightGBM" class="TOC">4 LightGBM</a>
+  </span>
+  <body><blockquote>
+  <p>一个很好的、对GBDT和XGBoost的介绍：XGBoost作者陈天奇的<a href="https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/">文章</a></p>
+</blockquote>
+
+<h3 id="1 简介" class="toc_anchor">1 简介</h3>
+
+<p>Gradient Boosting Decision Tree (GBDT)是一种常用来分类、回归的模型，而XGBoost与LightGBM是基于GBDT的两种实现。XGBoost与LightGBM都是被广泛使用的Github开源库，XGBoost在几年前帮助很多Kaggle队伍夺冠，从而名声大噪；而LightGBM作为新生事物，比XGBoost快很多倍，所以近期也越来越流行了。</p>
+
+<p>Gradient Boosting Decision Tree从名称上来讲包含三个部分：Decision Tree、Boosting、Gradient Boosting。决策树我们都比较熟悉，在此略过不谈。Boosting这种方法，是指用一组弱分类器，得到一个性能比较好的分类器；这里用到的思路是给每个弱分类器的结果进行加权。Gradient Boosting是指使用gradient信息对分类器进行加权，之后的部分会详细介绍gradient加权的思路。</p>
+
+<p>综上，GBDT是一种使用gradient作为信息，将不同的弱分类decision trees进行加权，从而获得较好性能的方法。</p>
+
+<p><img src="/media/img/GBDT-1.jpg" alt="" /></p>
+
+<h3 id="2 GBDT的一般步骤" class="toc_anchor">2 GBDT的一般步骤</h3>
+
+<h4 id="step-1-初始化">Step 1: 初始化</h4>
+
+<p>初始化y_hat在第0时刻的值。</p>
+
+<h4 id="step-2求残差">Step 2：求残差</h4>
+
+<p>通过类似梯度下降法的思路，每次y都向梯度下降的方向挪一小步。只是在GBDT，y挪的一小步并不是一个variable，而是一个function。</p>
+
+<p><img src="/media/img/GBDT-2.jpg" alt="" /></p>
+
+<p>如果loss function是个square loss，那么g表示为：</p>
+
+<p><img src="/media/img/GBDT-3.jpg" alt="" /></p>
+
+<h4 id="step-3构建决策树">Step 3：构建决策树</h4>
+
+<p>使用决策树逼近这个残差 –g，得到第t个决策树：f_t。</p>
+
+<h4 id="step-4求叶节点权重">Step 4：求叶节点权重</h4>
+
+<p><img src="/media/img/GBDT-4.jpg" alt="" /></p>
+
+<h4 id="step-5更新输出y">Step 5：更新输出y</h4>
+
+<p>y(t) = y(t - 1) + learning_rate * f_t</p>
+
+<blockquote>
+  <p>针对这个section讲的步骤，我做了一个简单<a href="https://github.com/chenlianMT/A-Simple-GBDT-Implementation-for-Regression">实现</a>。</p>
+</blockquote>
+
+<h3 id="3 XGBoost" class="toc_anchor">3 <a href="https://arxiv.org/pdf/1603.02754v3.pdf">XGBoost</a></h3>
+
+<p>在GBDT思想下，XGBoost对其中的步骤进行了具体实现。</p>
+
+<h4 id="变化1对loss的改变">变化1：对Loss的改变</h4>
+<p>传统GBDT只使用了一阶导数对loss进行近似，而XGBoost对Loss进行泰勒展开，取一阶导数和二阶导数。同时，XGBoost的Loss考虑了正则化项，包含了对复杂模型的惩罚，比如叶节点的个数、树的深度等等。</p>
+
+<p>通过对Loss的推导，得到了构建树时不同树的score。具体score计算方法见论文Sec 2.2。</p>
+
+<h4 id="变化2树的构建">变化2：树的构建</h4>
+<p>XGBoost支持几种构建树的方法。</p>
+
+<p>第一：使用贪心算法，分层添加decision tree的叶节点。对每个叶节点，对每个feature的所有instance值进行排序，得到所有可能的split。选择score最大的split，作为当前节点。</p>
+
+<p>第二：使用quantile对每个feature的所有instance值进行分bin，将数据离散化。</p>
+
+<p>第三：使用histogram对每个feature的所有instance值进行分bin，将数据离散化。</p>
+
+<h4 id="变化3系统设计">变化3：系统设计</h4>
+
+<p>XGBoost在系统上设计了一些方便并行计算的数据存储方法，同时也对cache access进行了优化。这些设计使XGBoost的运算表现在传统GBDT系统上得到了很大提升。</p>
+
+<h3 id="4 LightGBM" class="toc_anchor">4 <a href="https://papers.nips.cc/paper/6907-lightgbm-a-highly-efficient-gradient-boosting-decision-tree.pdf">LightGBM</a></h3>
+
+<p>LightGBM目前是XGBoost的有力竞争对手。就目前的一些report来说，LightGBM在更大、更sparse的数据上，比XGBoost的速度提升10倍有余；而它的精确度却没有很显著的损失。</p>
+
+<h4 id="变化1让训练样本更少">变化1：让训练样本更少</h4>
+
+<p>因为GBDT可以看做对残差大的样本加权更大（因为下一个决策树是用来拟合上一个决策树之后的残差的），所以对残差小的样本，LightGBM认为它们对树的学习不是很重要，所以对这部分样本进行了采样。</p>
+
+<h4 id="变化2让特征更少">变化2：让特征更少</h4>
+
+<p>因为很多数据集的feature是非常sparse的，所以会有很多互斥的features。互斥的features指两个features内积基本为0。</p>
+
+<p>LightGBM将这些互斥的feature相加，得到了更少的feature bundles。得到最少feature bundles是一个np-hard的问题，LightGBM对这个问题也做了一些优化。</p>
+
+<p>基于这两方面的improvements，LightGBM是目前来说表现最好的GBDT系统。</p>
+
+<p>（完）</p>
+
+</body>
+</html>
+
+
+
+
+          <p></p><p></p><p></p><p></p><p></p><p></p><p></p>
+
+        </section>
+      </article>
+    </section>
+  </article>
+</div>
+<script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+var containers = document.querySelectorAll('#toc-container');
+Array.prototype.forEach.call(containers, function(elements, index) {
+$(elements).appendTo($('nav'));
+});
+</script>
+</body>
+</html>
