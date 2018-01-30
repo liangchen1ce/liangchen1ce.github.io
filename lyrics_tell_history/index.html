@@ -1,75 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="author" content="梁琛">
-    <title>Lyrics Tell History</title>
-    <link href="/atom.xml" rel="alternate" title="liangchen1ce.github.io" type="application/atom+xml" />
-    <link rel="stylesheet" href="/media/css/style.css">
-    <link rel="stylesheet" href="/media/css/github.css">
-    <link rel="stylesheet" href="/media/css/fontawesome.css">
-    <script src="https://use.fontawesome.com/0daa5e8ddf.js"></script>
-    <script type="text/javascript" src="/media/js/highlight.pack.js"></script>
-    <script type="text/javascript">
-    hljs.initHighlightingOnLoad();
-    </script>
+    <title>Can Lyrics Tell Us about History?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link type="text/css" rel="stylesheet" href="assets/style.css" />
+    <link type="text/css" rel="stylesheet" href="assets/pilcrow.css" />
+    <link type="text/css" rel="stylesheet" href="assets/hljs-github.min.css"/>
   </head>
-  <body>
-  <div id="main" role="main">
-  <header>
-    
-      <h1>All the world's a stage</h1>
-    
-  </header>
-  <nav>
-    <span><a title="POSTS" class="" href="/eng/">POSTS</a></span>
-    <span><a title="PROJECTS" class="" href="/eng/projects/">PROJECTS</a></span>
-    <span><a title="TAGS" class="" href="/eng/tags/">TAGS</a></span>
-    <span><a title="VITAE" class="" href="/eng/vitae">VITAE</a></span>
-    <span><a title="ABOUT" class="" href="/">ABOUT</a></span>
-  </nav>
-  <article class="content">
-    <section class="homepost">
-      <article>
-        <section class="title">
-          <h2>Lyrics Tell History </h2>
-        </section>
-        <section class="meta">
-          <span class="time">
-            <time datetime="2016-01-02">2016-01-02</time>
-          </span>
-          
-            <span class="tags">
-              
-                <a href="/tags/d3.js" title="d3.js">#d3.js</a>
-              
-                <a href="/tags/visualization" title="visualization">#visualization</a>
-              
-                <a href="/tags/lyrics" title="lyrics">#lyrics</a>
-              
-            </span>
-          
-        </section>
-        <section class="post markdown-body">
-          <link rel="stylesheet" href="/media/css/toc.css">
-          <style type="text/css"></style>
-          <p>link: /musixmatch</p>
-
-
-                    <p></p><p></p><p></p><p></p><p></p><p></p><p></p>
-
-        </section>
-        
-      </article>
-    </section>
-  </article>
-</div>
-<script type="text/javascript" src="/media/js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript">
-var containers = document.querySelectorAll('#toc-container');
-Array.prototype.forEach.call(containers, function(elements, index) {
-$(elements).appendTo($('nav'));
-});
-</script>
+<body><h1 id="can-lyrics-tell-us-about-history-"><a class="header-link" href="#can-lyrics-tell-us-about-history-"></a>Can Lyrics Tell Us about History?</h1>
+<p>What can we find in lyrics? Can we see history? With this doubt, we carried out a study on the trend of words used in lyrics, and try to get some relations between our resulting words, and the history.</p>
+<h2 id="introduction-to-our-data"><a class="header-link" href="#introduction-to-our-data"></a>Introduction to our data</h2>
+<p>To start the research, we need to get the proper data. In this study, we collected the full billboard <a href="http://www.billboard.com/charts/hot-100">THE HOT 100</a> charts as basis, and got all lyrics available using <a href="https://developer.musixmatch.com">Musixmatch API</a>.</p>
+<p>The HOT 100 chart spans a range from Aug 09, 1958 to July 25, 2015, and released every week. </p>
+<p>Here are some statistics:</p>
+<ul class="list">
+<li>2973 charts in total</li>
+<li>26988 unique songs</li>
+<li>22196 unique lyrics, eliminating instrumental songs, and songs without available lyrics</li>
+<li>Spanned a period of 58 years</li>
+</ul>
+<p>In this study, we analyze trending words in 3 levels -- week, year and decade. So we could get the most important words for every week, every year and every decade.</p>
+<p>If you&#39;re interested about <em>how data is processed</em>, please see section <strong><a href="#technique-details">Technique Details</a></strong> below.</p>
+<h2 id="let-s-look-at-the-results"><a class="header-link" href="#let-s-look-at-the-results"></a>Let&#39;s look at the results</h2>
+<p>These are the top words in different time periods. Click on the circle, and get the topwords on the right.
+</p>
+<iframe class="frames" id="topwordsPie" frameborder="0" height="1200" marginheight="0" marginwidth="0" scrolling="no" src="vis/topwordsPie/index.html" width=100%></iframe>
+<p>To have a better idea, you can fill in specific words, and get the total number they appear in each year.
+</p>
+<iframe class="frames" id="autocompeletionChart" frameborder="0" height="630" marginheight="0" marginwidth="0" scrolling="no" src="vis/autocompeletionChart/index.html" width=100%></iframe>
+<h2 id="some-interesting-points"><a class="header-link" href="#some-interesting-points"></a>Some interesting points</h2>
+<h3 id="the-history-of-art-styles"><a class="header-link" href="#the-history-of-art-styles"></a>Art styles</h3>
+<iframe class="frames" frameborder="0" height="630" marginheight="0" marginwidth="0" scrolling="no" src="vis/others/arts.html" width=100%></iframe>
+<h3 id="she-he"><a class="header-link" href="#she-or-he"></a>She or he?</h3>
+<iframe class="frames" frameborder="0" height="630" marginheight="0" marginwidth="0" scrolling="no" src="vis/others/she.html" width=100%></iframe>
+<h3 id="war-peace"><a class="header-link" href="#war-or-peace"></a>War or peace?</h3>
+<iframe class="frames" frameborder="0" height="630" marginheight="0" marginwidth="0" scrolling="no" src="vis/others/war.html" width=100%></iframe>
+<h3 id="words-getting-vulgarer"><a class="header-link" href="#words-getting-vulgarer"></a>Words getting vulgarer</h3>
+<p>Some top-words in the 21th century are not that popluar in the good old days.
+<!-- To get a general sense of this trend, we again calculated the total occurances of <a href="https://github.com/shutterstock/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/blob/master/en">these words</a>, in each year.
+// Draw line chart of one general line of vulgar words. --></p>
+<h3 id="others-"><a class="header-link" href="#others-"></a>Others?</h3>
+<p>What other findings do you get? Please leave us a message!</p>
+<h2 id="technique-details"><a class="header-link" href="#technique-details"></a>Technique details</h2>
+<h3 id="how-the-data-is-collected-"><a class="header-link" href="#how-the-data-is-collected-"></a>How the data is collected?</h3>
+<p>As we mentioned, we first got a list of songs that have been on billboard THE HOT 100 chart, and collected the lyrics using Musixmatch. </p>
+<p>The following chart is the statistics of returned value using Musixmatch API.</p>
+<iframe class="frames" id="MusixmatchResult" frameborder="0" height="530" marginheight="0" marginwidth="0" scrolling="no" src="vis/MusixmatchResult/index.html" width=100%></iframe>
+<p>We can only analyze songs with English lyrics, which is shown in the top chart.</p>
+<p>Unfortunately we couldn&#39;t get all lyrics of all the songs, because of authorization problem, foreign language problem, and not-covered-by-database problem(We realized that cover songs like sung by Glee or Pitch Perfect are not likely to be found). But most of the not-covered-by-database problem occured in before 2000. So at least we could get better result in years after 2000s.</p>
+<h3 id="how-the-data-is-weighted-"><a class="header-link" href="#how-the-data-is-weighted-"></a>How the data is weighted?</h3>
+<p>It becomes natural to think about weighting on the rank of songs - help higher ranked songs have more weights so their lyrics become more important. That&#39;s what we do - we collect all songs in one time period, and weight the words in their lyrics by the highest rank they ever reached.</p>
+<h3 id="how-the-importance-is-determined-"><a class="header-link" href="#how-the-importance-is-determined-"></a>How the importance is determined?</h3>
+<p>We used the numerical statistic called <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf">tf-idf</a>. It shows how important a word is in its document, compared to the full collection.</p>
+<p>In our example, to get the top words in a week(like in week starting with 1958-Aug-09), we take the lyrics in songs of that week as one document, and consider all lyrics in this year&#39;s chart as the collection. </p>
+<p>To get the top words in a year, lyrics in this year are the document, and lyrics in the current decade are the collection. </p>
+<p>Further, to get top words in the decade, lyrics in the current decade are seen as one document, and all 58 years&#39; lyrics are the corpus.</p>
+<h1 id="comments-on-further-improvement"><a class="header-link" href="#comments-on-further-improvement"></a>Comments on further improvement</h1>
+<p>To our surprise, some words that are closely related to history, like &#39;war&#39; and &#39;peace&#39;, are not shown in the final top words. That&#39;s because these words are so commonly used in lyrics, so our algorithm doesn&#39;t see them as unique and important. </p>
+<p>One possible way is to reduce the appearance of a certain word in one document to 0 when this number is less than tenth of the maximum occurance in all documents. Thus the idf of this word will decrease and the tf-idf will increase. Your opinions are welcomed to help with better selection of top words.</p>
 </body>
 </html>
